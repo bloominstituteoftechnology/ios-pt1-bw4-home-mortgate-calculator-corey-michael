@@ -56,15 +56,55 @@
 		D67EEC5123A9E02B00E8F948 /* Mortgage Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				D67EEC5223A9E02B00E8F948 /* AppDelegate.swift */,
-				D67EEC5423A9E02B00E8F948 /* SceneDelegate.swift */,
-				D67EEC5623A9E02B00E8F948 /* ViewController.swift */,
-				D67EEC5823A9E02B00E8F948 /* Main.storyboard */,
-				D67EEC5B23A9E02D00E8F948 /* Assets.xcassets */,
-				D67EEC5D23A9E02D00E8F948 /* LaunchScreen.storyboard */,
-				D67EEC6023A9E02D00E8F948 /* Info.plist */,
+				EF73373723AB20EE0037CB1D /* Model */,
+				EF73373823AB21290037CB1D /* Model Controller */,
+				EF73373923AB21370037CB1D /* View Contollers */,
+				EF73373A23AB21510037CB1D /* Storyboards */,
+				EF73373B23AB21930037CB1D /* Resources */,
 			);
 			path = "Mortgage Calculator";
+			sourceTree = "<group>";
+		};
+		EF73373723AB20EE0037CB1D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		EF73373823AB21290037CB1D /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Model Controller";
+			sourceTree = "<group>";
+		};
+		EF73373923AB21370037CB1D /* View Contollers */ = {
+			isa = PBXGroup;
+			children = (
+				D67EEC5623A9E02B00E8F948 /* ViewController.swift */,
+			);
+			name = "View Contollers";
+			sourceTree = "<group>";
+		};
+		EF73373A23AB21510037CB1D /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D67EEC5823A9E02B00E8F948 /* Main.storyboard */,
+				D67EEC5D23A9E02D00E8F948 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		EF73373B23AB21930037CB1D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D67EEC5223A9E02B00E8F948 /* AppDelegate.swift */,
+				D67EEC5423A9E02B00E8F948 /* SceneDelegate.swift */,
+				D67EEC5B23A9E02D00E8F948 /* Assets.xcassets */,
+				D67EEC6023A9E02D00E8F948 /* Info.plist */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
