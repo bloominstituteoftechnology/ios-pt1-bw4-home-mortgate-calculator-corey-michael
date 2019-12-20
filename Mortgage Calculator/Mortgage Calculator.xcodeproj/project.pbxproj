@@ -13,6 +13,9 @@
 		D67EEC5A23A9E02B00E8F948 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D67EEC5823A9E02B00E8F948 /* Main.storyboard */; };
 		D67EEC5C23A9E02D00E8F948 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D67EEC5B23A9E02D00E8F948 /* Assets.xcassets */; };
 		D67EEC5F23A9E02D00E8F948 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D67EEC5D23A9E02D00E8F948 /* LaunchScreen.storyboard */; };
+		EF9805BC23AC686400FB0F2D /* Morgage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9805BB23AC686400FB0F2D /* Morgage.swift */; };
+		EF9805BE23AC697C00FB0F2D /* MortgageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9805BD23AC697C00FB0F2D /* MortgageController.swift */; };
+		EF9805C123AC831700FB0F2D /* TextFieldPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9805C023AC831700FB0F2D /* TextFieldPadding.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		D67EEC5B23A9E02D00E8F948 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D67EEC5E23A9E02D00E8F948 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D67EEC6023A9E02D00E8F948 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF9805BB23AC686400FB0F2D /* Morgage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Morgage.swift; sourceTree = "<group>"; };
+		EF9805BD23AC697C00FB0F2D /* MortgageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortgageController.swift; sourceTree = "<group>"; };
+		EF9805C023AC831700FB0F2D /* TextFieldPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldPadding.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,7 @@
 		D67EEC5123A9E02B00E8F948 /* Mortgage Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				EF9805BF23AC82E000FB0F2D /* Helpers */,
 				EF73373723AB20EE0037CB1D /* Model */,
 				EF73373823AB21290037CB1D /* Model Controller */,
 				EF73373923AB21370037CB1D /* View Contollers */,
@@ -68,6 +75,7 @@
 		EF73373723AB20EE0037CB1D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EF9805BB23AC686400FB0F2D /* Morgage.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -75,6 +83,7 @@
 		EF73373823AB21290037CB1D /* Model Controller */ = {
 			isa = PBXGroup;
 			children = (
+				EF9805BD23AC697C00FB0F2D /* MortgageController.swift */,
 			);
 			name = "Model Controller";
 			sourceTree = "<group>";
@@ -105,6 +114,14 @@
 				D67EEC6023A9E02D00E8F948 /* Info.plist */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		EF9805BF23AC82E000FB0F2D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EF9805C023AC831700FB0F2D /* TextFieldPadding.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,8 +195,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF9805BE23AC697C00FB0F2D /* MortgageController.swift in Sources */,
 				D67EEC5723A9E02B00E8F948 /* ViewController.swift in Sources */,
 				D67EEC5323A9E02B00E8F948 /* AppDelegate.swift in Sources */,
+				EF9805C123AC831700FB0F2D /* TextFieldPadding.swift in Sources */,
+				EF9805BC23AC686400FB0F2D /* Morgage.swift in Sources */,
 				D67EEC5523A9E02B00E8F948 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,12 +345,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3XVDLP5XYQ;
+				DEVELOPMENT_TEAM = SBB8C9E36E;
 				INFOPLIST_FILE = "Mortgage Calculator/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michaelstoffer.Mortgage-Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -343,12 +364,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3XVDLP5XYQ;
+				DEVELOPMENT_TEAM = SBB8C9E36E;
 				INFOPLIST_FILE = "Mortgage Calculator/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michaelstoffer.Mortgage-Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
