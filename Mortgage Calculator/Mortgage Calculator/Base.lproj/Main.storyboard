@@ -69,10 +69,10 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lTK-lX-YrI">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lTK-lX-YrI" customClass="TextFieldPadding" customModule="Mortgage_Calculator" customModuleProvider="target">
                                                         <rect key="frame" x="167.33333333333337" y="0.0" width="175.66666666666663" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -91,10 +91,10 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WhE-Fd-Nv7">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WhE-Fd-Nv7" customClass="TextFieldPadding" customModule="Mortgage_Calculator" customModuleProvider="target">
                                                         <rect key="frame" x="167.33333333333337" y="0.0" width="175.66666666666663" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -107,10 +107,10 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wKD-86-AfM">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wKD-86-AfM" customClass="TextFieldPadding" customModule="Mortgage_Calculator" customModuleProvider="target">
                                                         <rect key="frame" x="167.33333333333337" y="0.0" width="175.66666666666663" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -123,10 +123,10 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yyE-at-6WP">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yyE-at-6WP" customClass="TextFieldPadding" customModule="Mortgage_Calculator" customModuleProvider="target">
                                                         <rect key="frame" x="167.33333333333337" y="0.0" width="175.66666666666663" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -144,6 +144,9 @@
                                         <state key="normal" title="Calculate">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="calculateBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kIP-3q-F5J"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -211,22 +214,18 @@
                                 <exclude reference="Dc1-B0-887"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="1IM-SO-XYG"/>
-                                <exclude reference="5xi-cH-MpH"/>
-                                <exclude reference="71O-ni-ANg"/>
-                                <exclude reference="8Dj-hG-W6Z"/>
-                                <exclude reference="oSH-cq-bOw"/>
-                                <exclude reference="z4P-nr-qgz"/>
                                 <exclude reference="B0R-p6-ifl"/>
                                 <exclude reference="VeI-SQ-Vgo"/>
                                 <exclude reference="c1u-8Y-ypA"/>
                                 <exclude reference="z9i-Wr-Vjo"/>
                                 <exclude reference="zYl-r9-q7Q"/>
                                 <exclude reference="zl7-5F-MCI"/>
-                                <exclude reference="8gp-QK-5AD"/>
-                                <exclude reference="QBc-hJ-HGz"/>
-                                <exclude reference="p24-Kq-pQt"/>
-                                <exclude reference="vut-vr-Ld5"/>
+                                <exclude reference="1IM-SO-XYG"/>
+                                <exclude reference="5xi-cH-MpH"/>
+                                <exclude reference="71O-ni-ANg"/>
+                                <exclude reference="8Dj-hG-W6Z"/>
+                                <exclude reference="oSH-cq-bOw"/>
+                                <exclude reference="z4P-nr-qgz"/>
                                 <exclude reference="2gL-Ya-vwB"/>
                                 <exclude reference="4ac-bb-81B"/>
                                 <exclude reference="CYq-qz-6Pd"/>
@@ -234,6 +233,10 @@
                                 <exclude reference="LiZ-Ym-wEY"/>
                                 <exclude reference="Yor-e7-Iat"/>
                                 <exclude reference="iYQ-B0-gTW"/>
+                                <exclude reference="8gp-QK-5AD"/>
+                                <exclude reference="QBc-hJ-HGz"/>
+                                <exclude reference="p24-Kq-pQt"/>
+                                <exclude reference="vut-vr-Ld5"/>
                                 <exclude reference="yQC-sp-Df6"/>
                             </mask>
                         </variation>
@@ -243,14 +246,14 @@
                                 <include reference="Dc1-B0-887"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="1IM-SO-XYG"/>
-                                <include reference="8Dj-hG-W6Z"/>
                                 <include reference="c1u-8Y-ypA"/>
                                 <include reference="zl7-5F-MCI"/>
-                                <include reference="QBc-hJ-HGz"/>
-                                <include reference="vut-vr-Ld5"/>
+                                <include reference="1IM-SO-XYG"/>
+                                <include reference="8Dj-hG-W6Z"/>
                                 <include reference="JUQ-A7-E1L"/>
                                 <include reference="Yor-e7-Iat"/>
+                                <include reference="QBc-hJ-HGz"/>
+                                <include reference="vut-vr-Ld5"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=regular">
@@ -259,13 +262,13 @@
                                 <include reference="Dc1-B0-887"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="5xi-cH-MpH"/>
-                                <include reference="oSH-cq-bOw"/>
                                 <include reference="VeI-SQ-Vgo"/>
                                 <include reference="z9i-Wr-Vjo"/>
-                                <include reference="8gp-QK-5AD"/>
+                                <include reference="5xi-cH-MpH"/>
+                                <include reference="oSH-cq-bOw"/>
                                 <include reference="LiZ-Ym-wEY"/>
                                 <include reference="iYQ-B0-gTW"/>
+                                <include reference="8gp-QK-5AD"/>
                                 <include reference="yQC-sp-Df6"/>
                             </mask>
                         </variation>
@@ -275,17 +278,27 @@
                                 <include reference="Dc1-B0-887"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="71O-ni-ANg"/>
-                                <include reference="z4P-nr-qgz"/>
                                 <include reference="B0R-p6-ifl"/>
                                 <include reference="zYl-r9-q7Q"/>
-                                <include reference="p24-Kq-pQt"/>
+                                <include reference="71O-ni-ANg"/>
+                                <include reference="z4P-nr-qgz"/>
                                 <include reference="2gL-Ya-vwB"/>
                                 <include reference="4ac-bb-81B"/>
                                 <include reference="CYq-qz-6Pd"/>
+                                <include reference="p24-Kq-pQt"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="calculateBtn" destination="UIQ-qs-YIu" id="aY2-W4-9BC"/>
+                        <outlet property="downPaymentTxtFeild" destination="WhE-Fd-Nv7" id="QKG-NA-mc7"/>
+                        <outlet property="downPmtPercentageLbl" destination="BsA-1Q-CeY" id="nuH-1t-gVp"/>
+                        <outlet property="homePriceTxtFeild" destination="lTK-lX-YrI" id="pt0-02-7Kb"/>
+                        <outlet property="interestRateTxtFeild" destination="wKD-86-AfM" id="qYa-48-CoS"/>
+                        <outlet property="loanTermTxtFeild" destination="yyE-at-6WP" id="Juf-Eo-4x4"/>
+                        <outlet property="paymentResultLbl" destination="f82-O1-9ls" id="CeQ-6N-oTU"/>
+                        <outlet property="termLengthLbl" destination="zPB-I0-4qt" id="dN6-gW-WmT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
