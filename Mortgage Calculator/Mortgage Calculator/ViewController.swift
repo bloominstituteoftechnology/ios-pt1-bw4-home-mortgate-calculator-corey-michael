@@ -52,7 +52,7 @@ class ViewController: UIViewController {
         percentFormatter.numberStyle = .percent
         percentFormatter.multiplier = 1.00
         percentFormatter.minimumFractionDigits = 0
-        percentFormatter.maximumFractionDigits = 0
+        percentFormatter.maximumFractionDigits = 1
         return percentFormatter.string(from: NSNumber(value: value))!
     }
     
