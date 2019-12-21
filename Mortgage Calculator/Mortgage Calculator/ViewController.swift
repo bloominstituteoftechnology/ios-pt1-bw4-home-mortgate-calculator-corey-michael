@@ -54,6 +54,19 @@ class ViewController: UIViewController {
         return currencyFormatter.string(from: NSNumber(value: value))!
     }
     
+    func formatPercentageValue(value: Double) -> String {
+        let percentFormatter = NumberFormatter()
+        percentFormatter.numberStyle = .percent
+        percentFormatter.multiplier = 1.00
+        percentFormatter.minimumFractionDigits = 0
+        percentFormatter.maximumFractionDigits = 0
+        return percentFormatter.string(from: NSNumber(value: value))!
+    }
+    
+    func formatTermValue(value: Double) -> String {
+        return "\(value) (Yrs)"
+    }
+    
     // MARK: - Keyboard Observers
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
@@ -71,7 +84,7 @@ class ViewController: UIViewController {
     
     
     func updateViews() {
-        paymentResultLbl.text = formatValue(value: mortage.monthlyPayment)
+        paymentResultLbl.text = formatCurrencyValue(value: mortage.monthlyPayment)
         termLengthLbl.text = "\(Int(mortage.termLength))-Year Fixed Loan Term"
         
         let percentage = Int((mortage.downPayment / mortage.principalAmount) * 100)
@@ -89,6 +102,11 @@ class ViewController: UIViewController {
         mortage.downPayment = (downPayment as NSString).doubleValue
         mortage.interestRate = (interestRate as NSString).doubleValue
         mortage.termLength = (loanTerm as NSString).doubleValue
+        
+        homePriceTxtFeild.text = formatCurrencyValue(value: mortage.principalAmount)
+        downPaymentTxtFeild.text = formatCurrencyValue(value: mortage.downPayment)
+        interestRateTxtFeild.text = formatPercentageValue(value: mortage.interestRate)
+        loanTermTxtFeild.text = formatTermValue(value: mortage.termLength)
         
         mortage.monthlyPayment = mortgageController.calculateMortgagePayments(principalAmount: mortage.principalAmount, downPayment: mortage.downPayment, interestRate: mortage.interestRate, termLength: mortage.termLength)
         
