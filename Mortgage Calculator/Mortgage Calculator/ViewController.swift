@@ -22,22 +22,38 @@ class ViewController: UIViewController {
     
     // MARK: - Controllers
     let mortgageController = MortgageController()
-    
+
     // MARK: - Variables
     var mortage = Mortgage(principalAmount: 0.0, downPayment: 0.0, interestRate: 0.0, termLength: 0.0, monthlyPayment: 0.0) {
         didSet {
             updateViews()
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.homePriceTxtFeild.delegate = self
         self.downPaymentTxtFeild.delegate = self
         self.interestRateTxtFeild.delegate = self
         self.loanTermTxtFeild.delegate = self
+        self.setupTextFields()
     }
-        
+
+    func setupTextFields() {
+        homePriceTxtFeild.layer.borderWidth = 1.0
+        homePriceTxtFeild.layer.borderColor = UIColor.systemGray.cgColor
+        homePriceTxtFeild.layer.cornerRadius = 5
+        downPaymentTxtFeild.layer.borderWidth = 1.0
+        downPaymentTxtFeild.layer.borderColor = UIColor.systemGray.cgColor
+        downPaymentTxtFeild.layer.cornerRadius = 5
+        interestRateTxtFeild.layer.borderWidth = 1.0
+        interestRateTxtFeild.layer.borderColor = UIColor.systemGray.cgColor
+        interestRateTxtFeild.layer.cornerRadius = 5
+        loanTermTxtFeild.layer.borderWidth = 1.0
+        loanTermTxtFeild.layer.borderColor = UIColor.systemGray.cgColor
+        loanTermTxtFeild.layer.cornerRadius = 5
+    }
+
     // MARK: - Formatters
     func formatCurrencyValue(value: Double) -> String {
         let currencyFormatter = NumberFormatter()
@@ -46,7 +62,7 @@ class ViewController: UIViewController {
         currencyFormatter.maximumFractionDigits = 2
         return currencyFormatter.string(from: NSNumber(value: value))!
     }
-    
+
     func formatPercentageValue(value: Double) -> String {
         let percentFormatter = NumberFormatter()
         percentFormatter.numberStyle = .percent
@@ -55,21 +71,21 @@ class ViewController: UIViewController {
         percentFormatter.maximumFractionDigits = 1
         return percentFormatter.string(from: NSNumber(value: value))!
     }
-    
+
     func formatTermValue(value: Double) -> String {
         return "\(value) (Yrs)"
     }
-        
+
     // MARK: - Actions
     @IBAction func calculateBtnPressed(_ sender: UIButton) {
         self.view.endEditing(true)
         mortage.monthlyPayment = mortgageController.calculateMortgagePayments(principalAmount: mortage.principalAmount, downPayment: mortage.downPayment, interestRate: mortage.interestRate, termLength: mortage.termLength)
     }
-    
+
     @IBAction func clearBtnPressed(_ sender: UIButton) {
         clearTextFields()
     }
-    
+
     func clearTextFields() {
         homePriceTxtFeild.text = nil
         downPaymentTxtFeild.text = nil
@@ -79,7 +95,7 @@ class ViewController: UIViewController {
         paymentResultLbl.text = "$0.00"
         termLengthLbl.text = nil
     }
-    
+
     func updateViews() {
         paymentResultLbl.text = formatCurrencyValue(value: mortage.monthlyPayment)
         termLengthLbl.text = "\(Int(mortage.termLength))-Year Fixed Loan Term"
@@ -91,7 +107,7 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UITextFieldDelegate {
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == homePriceTxtFeild {
             textField.resignFirstResponder()
@@ -107,8 +123,18 @@ extension ViewController: UITextFieldDelegate {
         }
         return true
     }
-    
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.layer.borderWidth = 2.0
+        textField.layer.borderColor = UIColor.systemGreen.cgColor
+        textField.layer.cornerRadius = 5
+    }
+
     func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.layer.borderWidth = 1.0
+        textField.layer.borderColor = UIColor.systemGray.cgColor
+        textField.layer.cornerRadius = 5
+
         if textField == homePriceTxtFeild {
             guard let value = textField.text, !value.isEmpty else { return }
             let doubleVal = (value as NSString).doubleValue
@@ -131,6 +157,5 @@ extension ViewController: UITextFieldDelegate {
             textField.text = formatTermValue(value: doubleVal)
         }
     }
-    
-}
 
+}
