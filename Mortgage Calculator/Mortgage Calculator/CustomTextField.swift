@@ -14,13 +14,11 @@ class CustomTextField: UITextField {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        doneBarBtn()
         setupPlaceholderText()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        doneBarBtn()
         setupPlaceholderText()
     }
     
@@ -56,21 +54,4 @@ class CustomTextField: UITextField {
         return bounds.inset(by: padding)
     }
     
-    func doneBarBtn() {
-           let toolBar = UIToolbar()
-           let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-           let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(self.doneClicked))
-           toolBar.setItems([flexibleSpace,doneButton], animated: false)
-           toolBar.sizeToFit()
-           toolBar.barTintColor = .systemGreen
-           doneButton.tintColor = .white
-           inputAccessoryView = toolBar
-          
-       }
-       
-       @objc func doneClicked() {
-              endEditing(true)
-          }
-    
 }
-

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ogD-xE-VSm">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
@@ -16,22 +16,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="4I2-hU-B0N">
-                                <rect key="frame" x="82" y="52" width="250" height="132"/>
+                                <rect key="frame" x="82" y="96" width="250" height="132"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="3PP-yG-NtJ"/>
+                                    <constraint firstAttribute="width" constant="500" id="Da5-kD-O53"/>
                                     <constraint firstAttribute="width" constant="250" id="Gzq-qF-Dx6"/>
                                     <constraint firstAttribute="width" constant="250" id="HhB-5J-1gq"/>
                                     <constraint firstAttribute="width" secondItem="4I2-hU-B0N" secondAttribute="height" multiplier="58:37" id="Ueo-Tk-A2J"/>
                                     <constraint firstAttribute="width" secondItem="4I2-hU-B0N" secondAttribute="height" multiplier="58:37" id="Yks-bo-ZBx"/>
-                                    <constraint firstAttribute="height" constant="132" id="tcA-GX-EhH"/>
+                                    <constraint firstAttribute="height" constant="132" id="tcA-GX-EhH">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="200"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" secondItem="4I2-hU-B0N" secondAttribute="height" multiplier="125:33" id="wN6-5j-16r"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="3PP-yG-NtJ"/>
+                                        <exclude reference="Da5-kD-O53"/>
                                         <exclude reference="Gzq-qF-Dx6"/>
                                         <exclude reference="HhB-5J-1gq"/>
                                         <exclude reference="Ueo-Tk-A2J"/>
                                         <exclude reference="Yks-bo-ZBx"/>
+                                        <exclude reference="wN6-5j-16r"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=compact-widthClass=compact">
@@ -51,9 +57,16 @@
                                         <include reference="3PP-yG-NtJ"/>
                                     </mask>
                                 </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="Da5-kD-O53"/>
+                                        <include reference="tcA-GX-EhH"/>
+                                        <exclude reference="wN6-5j-16r"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="Hkb-bX-ml4">
-                                <rect key="frame" x="16" y="204" width="382" height="249"/>
+                                <rect key="frame" x="16" y="248" width="382" height="249"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="esS-Vd-bw8">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="184"/>
@@ -67,10 +80,10 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lTK-lX-YrI" customClass="CustomTextField" customModule="Mortgage_Calculator" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lTK-lX-YrI" customClass="CustomTextField" customModule="Mortgage_Calculator" customModuleProvider="target">
                                                         <rect key="frame" x="167.5" y="0.0" width="214.5" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -89,26 +102,26 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WhE-Fd-Nv7" customClass="CustomTextField" customModule="Mortgage_Calculator" customModuleProvider="target">
+                                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="WhE-Fd-Nv7" customClass="CustomTextField" customModule="Mortgage_Calculator" customModuleProvider="target">
                                                         <rect key="frame" x="167.5" y="0.0" width="214.5" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kkT-Uu-FeO">
                                                 <rect key="frame" x="0.0" y="100" width="382" height="34"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Interest Rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XA2-jR-xOP">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="APR (%)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XA2-jR-xOP">
                                                         <rect key="frame" x="0.0" y="0.0" width="159.5" height="34"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wKD-86-AfM" customClass="CustomTextField" customModule="Mortgage_Calculator" customModuleProvider="target">
+                                                    <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wKD-86-AfM" customClass="CustomTextField" customModule="Mortgage_Calculator" customModuleProvider="target">
                                                         <rect key="frame" x="167.5" y="0.0" width="214.5" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -121,10 +134,10 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yyE-at-6WP" customClass="CustomTextField" customModule="Mortgage_Calculator" customModuleProvider="target">
+                                                    <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yyE-at-6WP" customClass="CustomTextField" customModule="Mortgage_Calculator" customModuleProvider="target">
                                                         <rect key="frame" x="167.5" y="0.0" width="214.5" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -164,7 +177,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Dc1-B0-887">
-                                <rect key="frame" x="117" y="738.5" width="180" height="115.5"/>
+                                <rect key="frame" x="117" y="685.5" width="180" height="168.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Monthly Payment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOq-ZN-vdI">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="20.5"/>
@@ -178,15 +191,19 @@
                                         <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zPB-I0-4qt">
-                                        <rect key="frame" x="0.0" y="77.5" width="180" height="38"/>
-                                        <string key="text" base64-UTF8="YES">
-Cg
-</string>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zPB-I0-4qt">
+                                        <rect key="frame" x="0.0" y="77.5" width="180" height="50"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1LA-s0-UnW">
+                                        <rect key="frame" x="0.0" y="135.5" width="180" height="33"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <connections>
+                                            <segue destination="4uO-t5-cB7" kind="show" identifier="ToPaymentSchedule" id="EtV-aZ-rzb"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -194,22 +211,32 @@ Cg
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Dc1-B0-887" secondAttribute="bottom" constant="20" id="1IM-SO-XYG"/>
                             <constraint firstItem="Hkb-bX-ml4" firstAttribute="top" secondItem="4I2-hU-B0N" secondAttribute="bottom" constant="20" id="2gL-Ya-vwB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Dc1-B0-887" secondAttribute="bottom" constant="50" id="4A2-te-Ouf"/>
                             <constraint firstItem="Hkb-bX-ml4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="4ac-bb-81B">
                                 <variation key="heightClass=regular-widthClass=compact" constant="16"/>
                             </constraint>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Dc1-B0-887" secondAttribute="bottom" constant="32" id="5xi-cH-MpH"/>
+                            <constraint firstItem="Dc1-B0-887" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6xE-90-MUC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Dc1-B0-887" secondAttribute="bottom" constant="8" id="71O-ni-ANg"/>
+                            <constraint firstItem="Hkb-bX-ml4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="7mZ-NL-Z1S"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Hkb-bX-ml4" secondAttribute="trailing" constant="16" id="8Dj-hG-W6Z"/>
                             <constraint firstItem="Dc1-B0-887" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="43" id="8gp-QK-5AD"/>
+                            <constraint firstItem="Hkb-bX-ml4" firstAttribute="top" secondItem="4I2-hU-B0N" secondAttribute="bottom" constant="20" id="9PX-Yd-8YJ"/>
                             <constraint firstItem="4I2-hU-B0N" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="B0R-p6-ifl"/>
                             <constraint firstItem="Hkb-bX-ml4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CYq-qz-6Pd"/>
                             <constraint firstItem="Hkb-bX-ml4" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="JUQ-A7-E1L"/>
                             <constraint firstItem="Hkb-bX-ml4" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="LiZ-Ym-wEY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Hkb-bX-ml4" secondAttribute="trailing" constant="16" id="Pk5-gk-U2d"/>
                             <constraint firstItem="Dc1-B0-887" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="43" id="QBc-hJ-HGz"/>
                             <constraint firstItem="4I2-hU-B0N" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="VeI-SQ-Vgo"/>
                             <constraint firstItem="Hkb-bX-ml4" firstAttribute="leading" secondItem="4I2-hU-B0N" secondAttribute="trailing" constant="32" id="Yor-e7-Iat"/>
+                            <constraint firstItem="4I2-hU-B0N" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="a9G-MW-7Vw"/>
                             <constraint firstItem="4I2-hU-B0N" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="c1u-8Y-ypA"/>
                             <constraint firstItem="Hkb-bX-ml4" firstAttribute="leading" secondItem="4I2-hU-B0N" secondAttribute="trailing" constant="32" id="iYQ-B0-gTW"/>
+                            <constraint firstItem="4I2-hU-B0N" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="52" id="kh9-uQ-pgL">
+                                <variation key="heightClass=regular-widthClass=regular" constant="50"/>
+                            </constraint>
+                            <constraint firstItem="Hkb-bX-ml4" firstAttribute="top" secondItem="4I2-hU-B0N" secondAttribute="bottom" constant="20" id="kxb-rc-RIg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Hkb-bX-ml4" secondAttribute="trailing" constant="16" id="oSH-cq-bOw"/>
                             <constraint firstItem="Dc1-B0-887" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="p24-Kq-pQt"/>
                             <constraint firstItem="Dc1-B0-887" firstAttribute="width" secondItem="4I2-hU-B0N" secondAttribute="width" multiplier="0.72" id="vut-vr-Ld5"/>
@@ -228,25 +255,33 @@ Cg
                                 <exclude reference="Dc1-B0-887"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="B0R-p6-ifl"/>
-                                <exclude reference="VeI-SQ-Vgo"/>
-                                <exclude reference="c1u-8Y-ypA"/>
-                                <exclude reference="z9i-Wr-Vjo"/>
-                                <exclude reference="zYl-r9-q7Q"/>
-                                <exclude reference="zl7-5F-MCI"/>
                                 <exclude reference="1IM-SO-XYG"/>
+                                <exclude reference="4A2-te-Ouf"/>
                                 <exclude reference="5xi-cH-MpH"/>
                                 <exclude reference="71O-ni-ANg"/>
                                 <exclude reference="8Dj-hG-W6Z"/>
+                                <exclude reference="Pk5-gk-U2d"/>
                                 <exclude reference="oSH-cq-bOw"/>
                                 <exclude reference="z4P-nr-qgz"/>
+                                <exclude reference="B0R-p6-ifl"/>
+                                <exclude reference="VeI-SQ-Vgo"/>
+                                <exclude reference="a9G-MW-7Vw"/>
+                                <exclude reference="c1u-8Y-ypA"/>
+                                <exclude reference="kh9-uQ-pgL"/>
+                                <exclude reference="z9i-Wr-Vjo"/>
+                                <exclude reference="zYl-r9-q7Q"/>
+                                <exclude reference="zl7-5F-MCI"/>
                                 <exclude reference="2gL-Ya-vwB"/>
                                 <exclude reference="4ac-bb-81B"/>
+                                <exclude reference="7mZ-NL-Z1S"/>
+                                <exclude reference="9PX-Yd-8YJ"/>
                                 <exclude reference="CYq-qz-6Pd"/>
                                 <exclude reference="JUQ-A7-E1L"/>
                                 <exclude reference="LiZ-Ym-wEY"/>
                                 <exclude reference="Yor-e7-Iat"/>
                                 <exclude reference="iYQ-B0-gTW"/>
+                                <exclude reference="kxb-rc-RIg"/>
+                                <exclude reference="6xE-90-MUC"/>
                                 <exclude reference="8gp-QK-5AD"/>
                                 <exclude reference="QBc-hJ-HGz"/>
                                 <exclude reference="p24-Kq-pQt"/>
@@ -260,10 +295,10 @@ Cg
                                 <include reference="Dc1-B0-887"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="c1u-8Y-ypA"/>
-                                <include reference="zl7-5F-MCI"/>
                                 <include reference="1IM-SO-XYG"/>
                                 <include reference="8Dj-hG-W6Z"/>
+                                <include reference="c1u-8Y-ypA"/>
+                                <include reference="zl7-5F-MCI"/>
                                 <include reference="JUQ-A7-E1L"/>
                                 <include reference="Yor-e7-Iat"/>
                                 <include reference="QBc-hJ-HGz"/>
@@ -276,10 +311,10 @@ Cg
                                 <include reference="Dc1-B0-887"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="VeI-SQ-Vgo"/>
-                                <include reference="z9i-Wr-Vjo"/>
                                 <include reference="5xi-cH-MpH"/>
                                 <include reference="oSH-cq-bOw"/>
+                                <include reference="VeI-SQ-Vgo"/>
+                                <include reference="z9i-Wr-Vjo"/>
                                 <include reference="LiZ-Ym-wEY"/>
                                 <include reference="iYQ-B0-gTW"/>
                                 <include reference="8gp-QK-5AD"/>
@@ -292,31 +327,131 @@ Cg
                                 <include reference="Dc1-B0-887"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="B0R-p6-ifl"/>
-                                <include reference="zYl-r9-q7Q"/>
                                 <include reference="71O-ni-ANg"/>
                                 <include reference="z4P-nr-qgz"/>
+                                <include reference="B0R-p6-ifl"/>
+                                <include reference="zYl-r9-q7Q"/>
                                 <include reference="2gL-Ya-vwB"/>
                                 <include reference="4ac-bb-81B"/>
                                 <include reference="CYq-qz-6Pd"/>
                                 <include reference="p24-Kq-pQt"/>
                             </mask>
                         </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="4I2-hU-B0N"/>
+                                <include reference="Dc1-B0-887"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="4A2-te-Ouf"/>
+                                <include reference="Pk5-gk-U2d"/>
+                                <include reference="a9G-MW-7Vw"/>
+                                <include reference="kh9-uQ-pgL"/>
+                                <include reference="7mZ-NL-Z1S"/>
+                                <include reference="9PX-Yd-8YJ"/>
+                                <include reference="kxb-rc-RIg"/>
+                                <include reference="6xE-90-MUC"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="byM-h8-Kek"/>
                     <connections>
-                        <outlet property="calculateBtn" destination="UIQ-qs-YIu" id="aY2-W4-9BC"/>
                         <outlet property="downPaymentTxtFeild" destination="WhE-Fd-Nv7" id="QKG-NA-mc7"/>
                         <outlet property="downPmtPercentageLbl" destination="BsA-1Q-CeY" id="nuH-1t-gVp"/>
                         <outlet property="homePriceTxtFeild" destination="lTK-lX-YrI" id="pt0-02-7Kb"/>
                         <outlet property="interestRateTxtFeild" destination="wKD-86-AfM" id="qYa-48-CoS"/>
                         <outlet property="loanTermTxtFeild" destination="yyE-at-6WP" id="Juf-Eo-4x4"/>
                         <outlet property="paymentResultLbl" destination="f82-O1-9ls" id="CeQ-6N-oTU"/>
+                        <outlet property="showAmortizationScheduleButton" destination="1LA-s0-UnW" id="pQv-UD-x03"/>
                         <outlet property="termLengthLbl" destination="zPB-I0-4qt" id="dN6-gW-WmT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138.75" y="129.92957746478874"/>
+            <point key="canvasLocation" x="1047.8260869565217" y="129.91071428571428"/>
+        </scene>
+        <!--Amortization Schedule-->
+        <scene sceneID="2CT-4U-TWT">
+            <objects>
+                <tableViewController id="4uO-t5-cB7" customClass="PaymentScheduleTableViewController" customModule="Mortgage_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="X9N-hk-jLE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PaymentCell" rowHeight="53" id="ccT-Ff-7es" customClass="PaymentTableViewCell" customModule="Mortgage_Calculator" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="53"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ccT-Ff-7es" id="nXb-NC-hn3">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ziC-nk-0HX">
+                                            <rect key="frame" x="28" y="19" width="358" height="15"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deE-fY-BlH">
+                                                    <rect key="frame" x="0.0" y="0.0" width="114" height="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Interest" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGP-Xl-Jbi">
+                                                    <rect key="frame" x="122" y="0.0" width="114" height="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Principal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Afn-my-mW7">
+                                                    <rect key="frame" x="244" y="0.0" width="114" height="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ziC-nk-0HX" firstAttribute="leading" secondItem="nXb-NC-hn3" secondAttribute="leadingMargin" constant="8" id="1z7-x4-U7U"/>
+                                        <constraint firstItem="ziC-nk-0HX" firstAttribute="top" secondItem="nXb-NC-hn3" secondAttribute="topMargin" constant="8" id="7l6-Mv-fd6"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="ziC-nk-0HX" secondAttribute="bottom" constant="8" id="Bym-zZ-L2l"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="ziC-nk-0HX" secondAttribute="trailing" constant="8" id="pvK-Fp-7DR"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="interestLabel" destination="pGP-Xl-Jbi" id="RIX-hJ-gRd"/>
+                                    <outlet property="paymentLabel" destination="deE-fY-BlH" id="e6R-Bq-RKC"/>
+                                    <outlet property="principalLabel" destination="Afn-my-mW7" id="izV-Ve-ap2"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="4uO-t5-cB7" id="OBA-3h-PR8"/>
+                            <outlet property="delegate" destination="4uO-t5-cB7" id="wkU-Zh-uzN"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Amortization Schedule" id="hGp-tR-kZh"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WPj-od-xFc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1952.1739130434785" y="129.91071428571428"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Mle-li-aOz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ogD-xE-VSm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="t82-Dv-glj">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="jjU-wd-8S8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yp8-QM-CMx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="129.91071428571428"/>
         </scene>
     </scenes>
     <resources>
