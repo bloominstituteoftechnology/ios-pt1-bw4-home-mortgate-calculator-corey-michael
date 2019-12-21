@@ -64,11 +64,11 @@
 		D67EEC5123A9E02B00E8F948 /* Mortgage Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				EF9805BF23AC82E000FB0F2D /* Helpers */,
 				EF73373723AB20EE0037CB1D /* Model */,
 				EF73373823AB21290037CB1D /* Model Controller */,
 				EF73373923AB21370037CB1D /* View Contollers */,
 				EF73373A23AB21510037CB1D /* Storyboards */,
+				EF9805BF23AC82E000FB0F2D /* Helpers */,
 				EF73373B23AB21930037CB1D /* Resources */,
 			);
 			path = "Mortgage Calculator";
