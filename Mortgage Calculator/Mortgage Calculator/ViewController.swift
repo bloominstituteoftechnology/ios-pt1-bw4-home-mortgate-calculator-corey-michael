@@ -61,14 +61,6 @@ class ViewController: UIViewController {
     }
         
     // MARK: - Actions
-    func updateViews() {
-        paymentResultLbl.text = formatCurrencyValue(value: mortage.monthlyPayment)
-        termLengthLbl.text = "\(Int(mortage.termLength))-Year Fixed Loan Term"
-        
-        let percentage = Int((mortage.downPayment / mortage.principalAmount) * 100)
-        downPmtPercentageLbl.text = "(\(percentage))" + "%"
-    }
-    
     @IBAction func calculateBtnPressed(_ sender: UIButton) {
         guard let homePrice = homePriceTxtFeild.text, !homePrice.isEmpty,
             let downPayment = downPaymentTxtFeild.text, !downPayment.isEmpty,
@@ -101,6 +93,14 @@ class ViewController: UIViewController {
         termLengthLbl.text = nil
     }
     
+    func updateViews() {
+        paymentResultLbl.text = formatCurrencyValue(value: mortage.monthlyPayment)
+        termLengthLbl.text = "\(Int(mortage.termLength))-Year Fixed Loan Term"
+        
+        let percentage = Int((mortage.downPayment / mortage.principalAmount) * 100)
+        downPmtPercentageLbl.text = "(\(percentage))" + "%"
+    }
+
 }
 
 extension ViewController: UITextFieldDelegate {
