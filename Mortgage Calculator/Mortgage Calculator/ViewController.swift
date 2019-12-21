@@ -46,11 +46,12 @@ class ViewController: UIViewController {
     }
     
     // MARK: - Formatter
-    func formatValue(value: Double) -> String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.maximumFractionDigits = 2
-        return formatter.string(from: NSNumber(value: value))!
+    func formatCurrencyValue(value: Double) -> String {
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.groupingSeparator = ","
+        currencyFormatter.numberStyle = .currency
+        currencyFormatter.maximumFractionDigits = 2
+        return currencyFormatter.string(from: NSNumber(value: value))!
     }
     
     // MARK: - Keyboard Observers
