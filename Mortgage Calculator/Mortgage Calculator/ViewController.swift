@@ -62,20 +62,7 @@ class ViewController: UIViewController {
         
     // MARK: - Actions
     @IBAction func calculateBtnPressed(_ sender: UIButton) {
-        guard let homePrice = homePriceTxtFeild.text, !homePrice.isEmpty,
-            let downPayment = downPaymentTxtFeild.text, !downPayment.isEmpty,
-            let interestRate = interestRateTxtFeild.text, !interestRate.isEmpty,
-            let loanTerm = loanTermTxtFeild.text, !loanTerm.isEmpty else { return }
-        
-        mortage.principalAmount = (homePrice as NSString).doubleValue
-        mortage.downPayment = (downPayment as NSString).doubleValue
-        mortage.interestRate = (interestRate as NSString).doubleValue
-        mortage.termLength = (loanTerm as NSString).doubleValue
-        
-        homePriceTxtFeild.text = formatCurrencyValue(value: mortage.principalAmount)
-        downPaymentTxtFeild.text = formatCurrencyValue(value: mortage.downPayment)
-        interestRateTxtFeild.text = formatPercentageValue(value: mortage.interestRate)
-        loanTermTxtFeild.text = formatTermValue(value: mortage.termLength)
+        self.view.endEditing(true)
         mortage.monthlyPayment = mortgageController.calculateMortgagePayments(principalAmount: mortage.principalAmount, downPayment: mortage.downPayment, interestRate: mortage.interestRate, termLength: mortage.termLength)
     }
     
