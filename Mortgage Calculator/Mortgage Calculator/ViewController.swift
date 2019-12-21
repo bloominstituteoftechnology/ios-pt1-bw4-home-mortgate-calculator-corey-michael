@@ -108,5 +108,29 @@ extension ViewController: UITextFieldDelegate {
         return true
     }
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == homePriceTxtFeild {
+            guard let value = textField.text, !value.isEmpty else { return }
+            let doubleVal = (value as NSString).doubleValue
+            mortage.principalAmount = doubleVal
+            textField.text = formatCurrencyValue(value: doubleVal)
+        } else if textField == downPaymentTxtFeild {
+            guard let value = textField.text, !value.isEmpty else { return }
+            let doubleVal = (value as NSString).doubleValue
+            mortage.downPayment = doubleVal
+            textField.text = formatCurrencyValue(value: doubleVal)
+        } else if textField == interestRateTxtFeild {
+            guard let value = textField.text, !value.isEmpty else { return }
+            let doubleVal = (value as NSString).doubleValue
+            mortage.interestRate = doubleVal
+            textField.text = formatPercentageValue(value: doubleVal)
+        } else if textField == loanTermTxtFeild {
+            guard let value = textField.text, !value.isEmpty else { return }
+            let doubleVal = (value as NSString).doubleValue
+            mortage.termLength = doubleVal
+            textField.text = formatTermValue(value: doubleVal)
+        }
+    }
+    
 }
 
