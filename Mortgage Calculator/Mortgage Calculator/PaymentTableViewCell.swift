@@ -21,11 +21,19 @@ class PaymentTableViewCell: UITableViewCell {
         }
     }
     
+    func formatCurrencyValue(value: Double) -> String {
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.groupingSeparator = ","
+        currencyFormatter.numberStyle = .currency
+        currencyFormatter.maximumFractionDigits = 2
+        return currencyFormatter.string(from: NSNumber(value: value))!
+    }
+    
     private func updateViews() {
         guard let payment = payment else { return }
-        paymentLabel.text = String(format: "%.2f", payment.monthlyPayment)
-        interestLabel.text = String(format: "%.2f", payment.monthlyPayment * payment.interestRate)
-        principalLabel.text = String(format: "%.0f", payment.principalAmount)
+        paymentLabel.text = formatCurrencyValue(value: payment.monthlyPayment)
+        interestLabel.text = formatCurrencyValue(value: payment.interestRate)
+        principalLabel.text = formatCurrencyValue(value: payment.principalAmount)
     }
 
 }

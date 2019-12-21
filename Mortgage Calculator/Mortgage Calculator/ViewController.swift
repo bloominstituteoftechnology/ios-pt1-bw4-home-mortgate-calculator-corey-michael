@@ -102,9 +102,6 @@ class ViewController: UIViewController {
         paymentResultLbl.text = formatCurrencyValue(value: self.monthlyPayment)
         termLengthLbl.text = "\(Int(self.termLength))-Year Fixed Loan Term"
         showAmortizationScheduleButton.setTitle("Show Amortization Schedule", for: .normal)
-        
-        let percentage = Int((self.downPayment / self.principalAmount) * 100)
-        downPmtPercentageLbl.text = "(\(percentage)%)"
     }
     
     // MARK: - Navigation
@@ -156,6 +153,8 @@ extension ViewController: UITextFieldDelegate {
             guard let value = textField.text, !value.isEmpty else { return }
             let doubleVal = (value as NSString).doubleValue
             self.downPayment = doubleVal
+            let percentage = Int((self.downPayment / self.principalAmount) * 100)
+            downPmtPercentageLbl.text = "(\(percentage)%)"
             textField.text = formatCurrencyValue(value: doubleVal)
         } else if textField == interestRateTxtFeild {
             guard let value = textField.text, !value.isEmpty else { return }
