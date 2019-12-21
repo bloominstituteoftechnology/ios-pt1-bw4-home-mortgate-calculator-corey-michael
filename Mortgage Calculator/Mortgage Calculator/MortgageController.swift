@@ -10,6 +10,8 @@ import Foundation
 
 class MortgageController {
     
+    var payments: [MortgagePayment] = []
+    
     func calculateMortgagePayments(principalAmount: Double, downPayment: Double, interestRate: Double, termLength: Double) -> Double {
         let interestRatePercentage = interestRate / (12 * 100)
         let totalPaymentsCount = termLength * 12
@@ -21,10 +23,11 @@ class MortgageController {
         
         let monthlyPayment = adjustedPrice * result
         
+        for _ in 1...Int(totalPaymentsCount) {
+            payments.append(MortgagePayment(principalAmount: principalAmount, downPayment: downPayment, interestRate: interestRate, termLength: termLength, monthlyPayment: monthlyPayment))
+        }
+        
         return monthlyPayment
     }
-    
-    
-    
-    
+
 }
