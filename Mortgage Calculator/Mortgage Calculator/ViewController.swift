@@ -16,9 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var downPmtPercentageLbl: UILabel!
     @IBOutlet weak var interestRateTxtFeild: UITextField!
     @IBOutlet weak var loanTermTxtFeild:     UITextField!
-    
     @IBOutlet weak var calculateBtn:     UIButton!
-    
     @IBOutlet weak var paymentResultLbl: UILabel!
     @IBOutlet weak var termLengthLbl:    UILabel!
     
@@ -38,14 +36,9 @@ class ViewController: UIViewController {
         self.downPaymentTxtFeild.delegate = self
         self.interestRateTxtFeild.delegate = self
         self.loanTermTxtFeild.delegate = self
-        
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
     }
-    
-    // MARK: - Formatter
+        
+    // MARK: - Formatters
     func formatCurrencyValue(value: Double) -> String {
         let currencyFormatter = NumberFormatter()
         currencyFormatter.groupingSeparator = ","
@@ -66,23 +59,8 @@ class ViewController: UIViewController {
     func formatTermValue(value: Double) -> String {
         return "\(value) (Yrs)"
     }
-    
-    // MARK: - Keyboard Observers
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0 {
-                self.view.frame.origin.y -= keyboardSize.height / 4
-            }
-        }
-    }
-    
-    @objc func keyboardWillHide(notification: NSNotification) {
-        if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y = 0
-        }
-    }
-    
-    
+        
+    // MARK: - Actions
     func updateViews() {
         paymentResultLbl.text = formatCurrencyValue(value: mortage.monthlyPayment)
         termLengthLbl.text = "\(Int(mortage.termLength))-Year Fixed Loan Term"
@@ -90,7 +68,6 @@ class ViewController: UIViewController {
         let percentage = Int((mortage.downPayment / mortage.principalAmount) * 100)
         downPmtPercentageLbl.text = "(\(percentage))" + "%"
     }
-    
     
     @IBAction func calculateBtnPressed(_ sender: UIButton) {
         guard let homePrice = homePriceTxtFeild.text, !homePrice.isEmpty,
@@ -107,9 +84,7 @@ class ViewController: UIViewController {
         downPaymentTxtFeild.text = formatCurrencyValue(value: mortage.downPayment)
         interestRateTxtFeild.text = formatPercentageValue(value: mortage.interestRate)
         loanTermTxtFeild.text = formatTermValue(value: mortage.termLength)
-        
         mortage.monthlyPayment = mortgageController.calculateMortgagePayments(principalAmount: mortage.principalAmount, downPayment: mortage.downPayment, interestRate: mortage.interestRate, termLength: mortage.termLength)
-        
     }
     
     @IBAction func clearBtnPressed(_ sender: UIButton) {
@@ -122,7 +97,6 @@ class ViewController: UIViewController {
         interestRateTxtFeild.text = nil
         loanTermTxtFeild.text = nil
         downPmtPercentageLbl.text = "(0)%"
-        
         paymentResultLbl.text = "$0.00"
         termLengthLbl.text = nil
     }
