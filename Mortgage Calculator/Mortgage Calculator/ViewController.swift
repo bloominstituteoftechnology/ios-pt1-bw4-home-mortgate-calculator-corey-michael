@@ -13,22 +13,22 @@ class ViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var homePriceTxtFeild:    UITextField!
     @IBOutlet weak var downPaymentTxtFeild:  UITextField!
-    @IBOutlet weak var downPmtPercentageLbl: UILabel!
     @IBOutlet weak var interestRateTxtFeild: UITextField!
     @IBOutlet weak var loanTermTxtFeild:     UITextField!
-    @IBOutlet weak var calculateBtn:     UIButton!
+    @IBOutlet weak var downPmtPercentageLbl: UILabel!
     @IBOutlet weak var paymentResultLbl: UILabel!
     @IBOutlet weak var termLengthLbl:    UILabel!
-    
+    @IBOutlet weak var showAmortizationScheduleButton: UIButton!
+
     // MARK: - Controllers
     let mortgageController = MortgageController()
 
     // MARK: - Variables
-    var mortage = Mortgage(principalAmount: 0.0, downPayment: 0.0, interestRate: 0.0, termLength: 0.0, monthlyPayment: 0.0) {
-        didSet {
-            updateViews()
-        }
-    }
+    var principalAmount: Double = 0.0
+    var downPayment: Double = 0.0
+    var interestRate: Double = 0.0
+    var termLength: Double = 0.0
+    var monthlyPayment: Double = 0.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,7 +79,8 @@ class ViewController: UIViewController {
     // MARK: - Actions
     @IBAction func calculateBtnPressed(_ sender: UIButton) {
         self.view.endEditing(true)
-        mortage.monthlyPayment = mortgageController.calculateMortgagePayments(principalAmount: mortage.principalAmount, downPayment: mortage.downPayment, interestRate: mortage.interestRate, termLength: mortage.termLength)
+        self.monthlyPayment = mortgageController.calculateMortgagePayments(principalAmount: self.principalAmount, downPayment: self.downPayment, interestRate: self.interestRate, termLength: self.termLength)
+        self.updateViews()
     }
 
     @IBAction func clearBtnPressed(_ sender: UIButton) {
@@ -91,17 +92,28 @@ class ViewController: UIViewController {
         downPaymentTxtFeild.text = nil
         interestRateTxtFeild.text = nil
         loanTermTxtFeild.text = nil
-        downPmtPercentageLbl.text = "(0)%"
+        downPmtPercentageLbl.text = "(0%)"
         paymentResultLbl.text = "$0.00"
         termLengthLbl.text = nil
+        showAmortizationScheduleButton.setTitle("", for: .normal)
     }
 
     func updateViews() {
-        paymentResultLbl.text = formatCurrencyValue(value: mortage.monthlyPayment)
-        termLengthLbl.text = "\(Int(mortage.termLength))-Year Fixed Loan Term"
+        paymentResultLbl.text = formatCurrencyValue(value: self.monthlyPayment)
+        termLengthLbl.text = "\(Int(self.termLength))-Year Fixed Loan Term"
+        showAmortizationScheduleButton.setTitle("Show Amortization Schedule", for: .normal)
         
-        let percentage = Int((mortage.downPayment / mortage.principalAmount) * 100)
-        downPmtPercentageLbl.text = "(\(percentage))" + "%"
+        let percentage = Int((self.downPayment / self.principalAmount) * 100)
+        downPmtPercentageLbl.text = "(\(percentage)%)"
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ToPaymentSchedule" {
+            guard let paymentScheduleTBC = segue.destination as? PaymentScheduleTableViewController else { return }
+            
+            paymentScheduleTBC.mortgageController = self.mortgageController
+        }
     }
 
 }
@@ -138,22 +150,22 @@ extension ViewController: UITextFieldDelegate {
         if textField == homePriceTxtFeild {
             guard let value = textField.text, !value.isEmpty else { return }
             let doubleVal = (value as NSString).doubleValue
-            mortage.principalAmount = doubleVal
+            self.principalAmount = doubleVal
             textField.text = formatCurrencyValue(value: doubleVal)
         } else if textField == downPaymentTxtFeild {
             guard let value = textField.text, !value.isEmpty else { return }
             let doubleVal = (value as NSString).doubleValue
-            mortage.downPayment = doubleVal
+            self.downPayment = doubleVal
             textField.text = formatCurrencyValue(value: doubleVal)
         } else if textField == interestRateTxtFeild {
             guard let value = textField.text, !value.isEmpty else { return }
             let doubleVal = (value as NSString).doubleValue
-            mortage.interestRate = doubleVal
+            self.interestRate = doubleVal
             textField.text = formatPercentageValue(value: doubleVal)
         } else if textField == loanTermTxtFeild {
             guard let value = textField.text, !value.isEmpty else { return }
             let doubleVal = (value as NSString).doubleValue
-            mortage.termLength = doubleVal
+            self.termLength = doubleVal
             textField.text = formatTermValue(value: doubleVal)
         }
     }

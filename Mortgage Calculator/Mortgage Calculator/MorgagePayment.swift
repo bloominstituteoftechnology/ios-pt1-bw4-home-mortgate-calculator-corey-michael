@@ -1,5 +1,5 @@
 //
-//  Morgage.swift
+//  MorgagePayment.swift
 //  Mortgage Calculator
 //
 //  Created by Seschwan on 12/19/19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Mortgage {
+struct MortgagePayment {
     var principalAmount: Double
     var downPayment:     Double
     var interestRate:    Double
