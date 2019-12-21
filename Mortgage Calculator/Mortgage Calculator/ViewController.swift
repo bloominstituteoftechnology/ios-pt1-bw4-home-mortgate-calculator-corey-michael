@@ -31,7 +31,7 @@ class ViewController: UIViewController {
             updateViews()
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.homePriceTxtFeild.delegate = self
@@ -39,20 +39,42 @@ class ViewController: UIViewController {
         self.interestRateTxtFeild.delegate = self
         self.loanTermTxtFeild.delegate = self
         
-        calculateBtn.layer.cornerRadius = 5
-        doneBarBtn()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
     }
-
     
-    //TODO: - update the downpayment percentage based on the value.
+    // MARK: - Formatter
+    func formatValue(value: Double) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.maximumFractionDigits = 2
+        return formatter.string(from: NSNumber(value: value))!
+    }
+    
+    // MARK: - Keyboard Observers
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height / 4
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
     
     func updateViews() {
-        paymentResultLbl.text = "$ \(mortage.monthlyPayment)"
-        termLengthLbl.text = "\(mortage.termLength) Year Fixed Loan Term"
-        let percentage = ((mortage.downPayment / mortage.principalAmount) * 100)
-        downPmtPercentageLbl.text = "\(round(percentage))" + "%"
+        paymentResultLbl.text = formatValue(value: mortage.monthlyPayment)
+        termLengthLbl.text = "\(Int(mortage.termLength))-Year Fixed Loan Term"
+        
+        let percentage = Int((mortage.downPayment / mortage.principalAmount) * 100)
+        downPmtPercentageLbl.text = "(\(percentage))" + "%"
     }
     
     
@@ -71,30 +93,39 @@ class ViewController: UIViewController {
         
     }
     
-    func doneBarBtn() {
-        let toolBar = UIToolbar()
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(self.doneClicked))
-        toolBar.setItems([flexibleSpace,doneButton], animated: false)
-        toolBar.sizeToFit()
-        toolBar.barTintColor = .systemGreen
-        doneButton.tintColor = .white
-        homePriceTxtFeild.inputAccessoryView = toolBar
-        downPaymentTxtFeild.inputAccessoryView  = toolBar
-        interestRateTxtFeild.inputAccessoryView = toolBar
-        loanTermTxtFeild.inputAccessoryView  = toolBar
+    @IBAction func clearBtnPressed(_ sender: UIButton) {
+        clearTextFields()
     }
     
-    @objc func doneClicked() {
-           view.endEditing(true)
-       }
+    func clearTextFields() {
+        homePriceTxtFeild.text = nil
+        downPaymentTxtFeild.text = nil
+        interestRateTxtFeild.text = nil
+        loanTermTxtFeild.text = nil
+        downPmtPercentageLbl.text = "(0)%"
+        
+        paymentResultLbl.text = "$0.00"
+        termLengthLbl.text = nil
+    }
     
 }
 
 extension ViewController: UITextFieldDelegate {
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
+        if textField == homePriceTxtFeild {
+            textField.resignFirstResponder()
+            downPaymentTxtFeild.becomeFirstResponder()
+        } else if textField == downPaymentTxtFeild {
+            textField.resignFirstResponder()
+            interestRateTxtFeild.becomeFirstResponder()
+        } else if textField == interestRateTxtFeild {
+            textField.resignFirstResponder()
+            loanTermTxtFeild.becomeFirstResponder()
+        } else if textField == loanTermTxtFeild {
+            textField.resignFirstResponder()
+        }
+        return true
     }
     
 }

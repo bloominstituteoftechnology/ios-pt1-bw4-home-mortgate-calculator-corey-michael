@@ -13,9 +13,10 @@
 		D67EEC5A23A9E02B00E8F948 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D67EEC5823A9E02B00E8F948 /* Main.storyboard */; };
 		D67EEC5C23A9E02D00E8F948 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D67EEC5B23A9E02D00E8F948 /* Assets.xcassets */; };
 		D67EEC5F23A9E02D00E8F948 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D67EEC5D23A9E02D00E8F948 /* LaunchScreen.storyboard */; };
+		EF28F91123AD9B89003B3362 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF28F91023AD9B89003B3362 /* CustomButton.swift */; };
 		EF9805BC23AC686400FB0F2D /* Morgage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9805BB23AC686400FB0F2D /* Morgage.swift */; };
 		EF9805BE23AC697C00FB0F2D /* MortgageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9805BD23AC697C00FB0F2D /* MortgageController.swift */; };
-		EF9805C123AC831700FB0F2D /* TextFieldPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9805C023AC831700FB0F2D /* TextFieldPadding.swift */; };
+		EF9805C123AC831700FB0F2D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9805C023AC831700FB0F2D /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,9 +28,10 @@
 		D67EEC5B23A9E02D00E8F948 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D67EEC5E23A9E02D00E8F948 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D67EEC6023A9E02D00E8F948 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF28F91023AD9B89003B3362 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		EF9805BB23AC686400FB0F2D /* Morgage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Morgage.swift; sourceTree = "<group>"; };
 		EF9805BD23AC697C00FB0F2D /* MortgageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortgageController.swift; sourceTree = "<group>"; };
-		EF9805C023AC831700FB0F2D /* TextFieldPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldPadding.swift; sourceTree = "<group>"; };
+		EF9805C023AC831700FB0F2D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +121,8 @@
 		EF9805BF23AC82E000FB0F2D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				EF9805C023AC831700FB0F2D /* TextFieldPadding.swift */,
+				EF9805C023AC831700FB0F2D /* CustomTextField.swift */,
+				EF28F91023AD9B89003B3362 /* CustomButton.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -198,7 +201,8 @@
 				EF9805BE23AC697C00FB0F2D /* MortgageController.swift in Sources */,
 				D67EEC5723A9E02B00E8F948 /* ViewController.swift in Sources */,
 				D67EEC5323A9E02B00E8F948 /* AppDelegate.swift in Sources */,
-				EF9805C123AC831700FB0F2D /* TextFieldPadding.swift in Sources */,
+				EF9805C123AC831700FB0F2D /* CustomTextField.swift in Sources */,
+				EF28F91123AD9B89003B3362 /* CustomButton.swift in Sources */,
 				EF9805BC23AC686400FB0F2D /* Morgage.swift in Sources */,
 				D67EEC5523A9E02B00E8F948 /* SceneDelegate.swift in Sources */,
 			);

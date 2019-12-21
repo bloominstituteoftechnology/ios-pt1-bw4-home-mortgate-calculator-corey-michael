@@ -21,6 +21,10 @@ class MortgageController {
         
         let monthlyPayment = adjustedPrice * result
         
-        return monthlyPayment.rounded()
+        return monthlyPayment
     }
+    
+    
+    
+    
 }
