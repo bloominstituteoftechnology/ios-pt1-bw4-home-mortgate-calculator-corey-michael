@@ -201,7 +201,7 @@
                                         <rect key="frame" x="0.0" y="135.5" width="180" height="33"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <connections>
-                                            <segue destination="4uO-t5-cB7" kind="show" identifier="ToPaymentSchedule" id="EtV-aZ-rzb"/>
+                                            <action selector="showAmortizationSchedule:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q43-Ne-T4o"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -255,14 +255,6 @@
                                 <exclude reference="Dc1-B0-887"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="1IM-SO-XYG"/>
-                                <exclude reference="4A2-te-Ouf"/>
-                                <exclude reference="5xi-cH-MpH"/>
-                                <exclude reference="71O-ni-ANg"/>
-                                <exclude reference="8Dj-hG-W6Z"/>
-                                <exclude reference="Pk5-gk-U2d"/>
-                                <exclude reference="oSH-cq-bOw"/>
-                                <exclude reference="z4P-nr-qgz"/>
                                 <exclude reference="B0R-p6-ifl"/>
                                 <exclude reference="VeI-SQ-Vgo"/>
                                 <exclude reference="a9G-MW-7Vw"/>
@@ -271,6 +263,14 @@
                                 <exclude reference="z9i-Wr-Vjo"/>
                                 <exclude reference="zYl-r9-q7Q"/>
                                 <exclude reference="zl7-5F-MCI"/>
+                                <exclude reference="1IM-SO-XYG"/>
+                                <exclude reference="4A2-te-Ouf"/>
+                                <exclude reference="5xi-cH-MpH"/>
+                                <exclude reference="71O-ni-ANg"/>
+                                <exclude reference="8Dj-hG-W6Z"/>
+                                <exclude reference="Pk5-gk-U2d"/>
+                                <exclude reference="oSH-cq-bOw"/>
+                                <exclude reference="z4P-nr-qgz"/>
                                 <exclude reference="2gL-Ya-vwB"/>
                                 <exclude reference="4ac-bb-81B"/>
                                 <exclude reference="7mZ-NL-Z1S"/>
@@ -295,10 +295,10 @@
                                 <include reference="Dc1-B0-887"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="1IM-SO-XYG"/>
-                                <include reference="8Dj-hG-W6Z"/>
                                 <include reference="c1u-8Y-ypA"/>
                                 <include reference="zl7-5F-MCI"/>
+                                <include reference="1IM-SO-XYG"/>
+                                <include reference="8Dj-hG-W6Z"/>
                                 <include reference="JUQ-A7-E1L"/>
                                 <include reference="Yor-e7-Iat"/>
                                 <include reference="QBc-hJ-HGz"/>
@@ -311,10 +311,10 @@
                                 <include reference="Dc1-B0-887"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="5xi-cH-MpH"/>
-                                <include reference="oSH-cq-bOw"/>
                                 <include reference="VeI-SQ-Vgo"/>
                                 <include reference="z9i-Wr-Vjo"/>
+                                <include reference="5xi-cH-MpH"/>
+                                <include reference="oSH-cq-bOw"/>
                                 <include reference="LiZ-Ym-wEY"/>
                                 <include reference="iYQ-B0-gTW"/>
                                 <include reference="8gp-QK-5AD"/>
@@ -327,10 +327,10 @@
                                 <include reference="Dc1-B0-887"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="71O-ni-ANg"/>
-                                <include reference="z4P-nr-qgz"/>
                                 <include reference="B0R-p6-ifl"/>
                                 <include reference="zYl-r9-q7Q"/>
+                                <include reference="71O-ni-ANg"/>
+                                <include reference="z4P-nr-qgz"/>
                                 <include reference="2gL-Ya-vwB"/>
                                 <include reference="4ac-bb-81B"/>
                                 <include reference="CYq-qz-6Pd"/>
@@ -343,10 +343,10 @@
                                 <include reference="Dc1-B0-887"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="4A2-te-Ouf"/>
-                                <include reference="Pk5-gk-U2d"/>
                                 <include reference="a9G-MW-7Vw"/>
                                 <include reference="kh9-uQ-pgL"/>
+                                <include reference="4A2-te-Ouf"/>
+                                <include reference="Pk5-gk-U2d"/>
                                 <include reference="7mZ-NL-Z1S"/>
                                 <include reference="9PX-Yd-8YJ"/>
                                 <include reference="kxb-rc-RIg"/>
@@ -356,11 +356,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="byM-h8-Kek"/>
                     <connections>
-                        <outlet property="downPaymentTxtFeild" destination="WhE-Fd-Nv7" id="QKG-NA-mc7"/>
+                        <outlet property="downPaymentTxtField" destination="WhE-Fd-Nv7" id="Bec-ig-5Cw"/>
                         <outlet property="downPmtPercentageLbl" destination="BsA-1Q-CeY" id="nuH-1t-gVp"/>
-                        <outlet property="homePriceTxtFeild" destination="lTK-lX-YrI" id="pt0-02-7Kb"/>
-                        <outlet property="interestRateTxtFeild" destination="wKD-86-AfM" id="qYa-48-CoS"/>
-                        <outlet property="loanTermTxtFeild" destination="yyE-at-6WP" id="Juf-Eo-4x4"/>
+                        <outlet property="homePriceTxtField" destination="lTK-lX-YrI" id="Fvc-hz-6Hp"/>
+                        <outlet property="interestRateTxtField" destination="wKD-86-AfM" id="yFd-8N-RSd"/>
+                        <outlet property="loanTermTxtField" destination="yyE-at-6WP" id="blU-9s-rda"/>
                         <outlet property="paymentResultLbl" destination="f82-O1-9ls" id="CeQ-6N-oTU"/>
                         <outlet property="showAmortizationScheduleButton" destination="1LA-s0-UnW" id="pQv-UD-x03"/>
                         <outlet property="termLengthLbl" destination="zPB-I0-4qt" id="dN6-gW-WmT"/>
@@ -373,36 +373,80 @@
         <!--Amortization Schedule-->
         <scene sceneID="2CT-4U-TWT">
             <objects>
-                <tableViewController id="4uO-t5-cB7" customClass="PaymentScheduleTableViewController" customModule="Mortgage_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AmortizationSchedule" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4uO-t5-cB7" customClass="PaymentScheduleTableViewController" customModule="Mortgage_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="X9N-hk-jLE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="Tw1-ps-bU4">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="78"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" id="THq-R5-aDQ">
+                                    <rect key="frame" x="28" y="43" width="358" height="15"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Count" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJI-ur-SU2">
+                                            <rect key="frame" x="0.0" y="0.0" width="46.5" height="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Payment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9R-jP-k6k">
+                                            <rect key="frame" x="86.5" y="0.0" width="67" height="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Interest" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nHu-We-78A">
+                                            <rect key="frame" x="193.5" y="0.0" width="58.5" height="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Principal" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJ7-z0-bfH">
+                                            <rect key="frame" x="292" y="0.0" width="66" height="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <viewLayoutGuide key="safeArea" id="pUU-nG-8PB"/>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PaymentCell" rowHeight="53" id="ccT-Ff-7es" customClass="PaymentTableViewCell" customModule="Mortgage_Calculator" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="53"/>
+                                <rect key="frame" x="0.0" y="106" width="414" height="53"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ccT-Ff-7es" id="nXb-NC-hn3">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ziC-nk-0HX">
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ziC-nk-0HX">
                                             <rect key="frame" x="28" y="19" width="358" height="15"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deE-fY-BlH">
-                                                    <rect key="frame" x="0.0" y="0.0" width="114" height="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Count" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0d7-fT-Vae">
+                                                    <rect key="frame" x="0.0" y="0.0" width="46.5" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Interest" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGP-Xl-Jbi">
-                                                    <rect key="frame" x="122" y="0.0" width="114" height="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Payment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deE-fY-BlH">
+                                                    <rect key="frame" x="86.5" y="0.0" width="67" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Principal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Afn-my-mW7">
-                                                    <rect key="frame" x="244" y="0.0" width="114" height="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Interest" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGP-Xl-Jbi">
+                                                    <rect key="frame" x="193.5" y="0.0" width="58.5" height="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Principal" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Afn-my-mW7">
+                                                    <rect key="frame" x="292" y="0.0" width="66" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -419,6 +463,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="interestLabel" destination="pGP-Xl-Jbi" id="RIX-hJ-gRd"/>
+                                    <outlet property="paymentCountLabel" destination="0d7-fT-Vae" id="uh8-dm-Wr5"/>
                                     <outlet property="paymentLabel" destination="deE-fY-BlH" id="e6R-Bq-RKC"/>
                                     <outlet property="principalLabel" destination="Afn-my-mW7" id="izV-Ve-ap2"/>
                                 </connections>

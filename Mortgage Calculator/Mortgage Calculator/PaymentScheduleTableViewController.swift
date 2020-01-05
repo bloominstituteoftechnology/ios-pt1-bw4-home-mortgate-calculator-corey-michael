@@ -17,10 +17,6 @@ class PaymentScheduleTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "      Payment               Interest            Principal"
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.mortgageController!.payments.count
     }
@@ -30,6 +26,7 @@ class PaymentScheduleTableViewController: UITableViewController {
         
         let payment = self.mortgageController!.payments[indexPath.row]
         cell.payment = payment
+        cell.paymentCountLabel.text = String(indexPath.row + 1)
 
         return cell
     }

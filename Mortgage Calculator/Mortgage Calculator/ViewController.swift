@@ -9,12 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
+
     // MARK: - Outlets
-    @IBOutlet weak var homePriceTxtFeild:    UITextField!
-    @IBOutlet weak var downPaymentTxtFeild:  UITextField!
-    @IBOutlet weak var interestRateTxtFeild: UITextField!
-    @IBOutlet weak var loanTermTxtFeild:     UITextField!
+    @IBOutlet weak var homePriceTxtField:    UITextField!
+    @IBOutlet weak var downPaymentTxtField:  UITextField!
+    @IBOutlet weak var interestRateTxtField: UITextField!
+    @IBOutlet weak var loanTermTxtField:     UITextField!
     @IBOutlet weak var downPmtPercentageLbl: UILabel!
     @IBOutlet weak var paymentResultLbl: UILabel!
     @IBOutlet weak var termLengthLbl:    UILabel!
@@ -32,26 +32,26 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.homePriceTxtFeild.delegate = self
-        self.downPaymentTxtFeild.delegate = self
-        self.interestRateTxtFeild.delegate = self
-        self.loanTermTxtFeild.delegate = self
+        self.homePriceTxtField.delegate = self
+        self.downPaymentTxtField.delegate = self
+        self.interestRateTxtField.delegate = self
+        self.loanTermTxtField.delegate = self
         self.setupTextFields()
     }
 
     func setupTextFields() {
-        homePriceTxtFeild.layer.borderWidth = 1.0
-        homePriceTxtFeild.layer.borderColor = UIColor.systemGray.cgColor
-        homePriceTxtFeild.layer.cornerRadius = 5
-        downPaymentTxtFeild.layer.borderWidth = 1.0
-        downPaymentTxtFeild.layer.borderColor = UIColor.systemGray.cgColor
-        downPaymentTxtFeild.layer.cornerRadius = 5
-        interestRateTxtFeild.layer.borderWidth = 1.0
-        interestRateTxtFeild.layer.borderColor = UIColor.systemGray.cgColor
-        interestRateTxtFeild.layer.cornerRadius = 5
-        loanTermTxtFeild.layer.borderWidth = 1.0
-        loanTermTxtFeild.layer.borderColor = UIColor.systemGray.cgColor
-        loanTermTxtFeild.layer.cornerRadius = 5
+        homePriceTxtField.layer.borderWidth = 1.0
+        homePriceTxtField.layer.borderColor = UIColor.systemGray.cgColor
+        homePriceTxtField.layer.cornerRadius = 5
+        downPaymentTxtField.layer.borderWidth = 1.0
+        downPaymentTxtField.layer.borderColor = UIColor.systemGray.cgColor
+        downPaymentTxtField.layer.cornerRadius = 5
+        interestRateTxtField.layer.borderWidth = 1.0
+        interestRateTxtField.layer.borderColor = UIColor.systemGray.cgColor
+        interestRateTxtField.layer.cornerRadius = 5
+        loanTermTxtField.layer.borderWidth = 1.0
+        loanTermTxtField.layer.borderColor = UIColor.systemGray.cgColor
+        loanTermTxtField.layer.cornerRadius = 5
     }
 
     // MARK: - Formatters
@@ -78,6 +78,11 @@ class ViewController: UIViewController {
 
     // MARK: - Actions
     @IBAction func calculateBtnPressed(_ sender: UIButton) {
+        guard let principal = self.homePriceTxtField.text, !principal.isEmpty else { return self.presentEmptyHomePriceTextField() }
+        guard let downPayment = self.downPaymentTxtField.text, !downPayment.isEmpty else { return self.presentEmptyDownPaymentTextField() }
+        guard let interestRate = self.interestRateTxtField.text, !interestRate.isEmpty else { return self.presentEmptyInterestRateTextField() }
+        guard let termLength = self.loanTermTxtField.text, !termLength.isEmpty else { return self.presentEmptyLoanTermTextField() }
+
         self.view.endEditing(true)
         self.monthlyPayment = mortgageController.calculateMortgagePayments(principalAmount: self.principalAmount, downPayment: self.downPayment, interestRate: self.interestRate, termLength: self.termLength)
         self.updateViews()
@@ -87,11 +92,77 @@ class ViewController: UIViewController {
         clearTextFields()
     }
 
+    @IBAction func showAmortizationSchedule(_ sender: UIButton) {
+        if self.principalAmount > 0 && self.downPayment > 0 && self.interestRate > 0 && self.termLength > 0 {
+            let interestRatePercentage = self.interestRate / (12 * 100)
+            let totalPaymentsCount = self.termLength * 12
+            var adjustedPrice = self.principalAmount - self.downPayment
+
+            let firstStep = interestRatePercentage * pow(1 + interestRatePercentage, totalPaymentsCount)
+            let secondStep = pow(1 + interestRatePercentage, totalPaymentsCount) - 1
+            let result = firstStep / secondStep
+
+            let monthlyPayment = adjustedPrice * result
+            var interest = adjustedPrice * interestRatePercentage
+            var principal = monthlyPayment - interest
+            self.mortgageController.payments = [];
+
+            for _ in 1...Int(totalPaymentsCount) {
+                adjustedPrice = adjustedPrice - principal
+                self.mortgageController.payments.append(MortgagePayment(principalAmount: abs(adjustedPrice), downPayment: downPayment, interestRate: interest, termLength: termLength, monthlyPayment: monthlyPayment))
+    
+                interest = adjustedPrice * interestRatePercentage
+                principal = monthlyPayment - interest
+            }
+            
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let paymentViewController = storyBoard.instantiateViewController(withIdentifier: "AmortizationSchedule") as! PaymentScheduleTableViewController
+            paymentViewController.mortgageController = self.mortgageController
+            self.navigationController?.pushViewController(paymentViewController, animated: true)
+        }
+    }
+
+    func presentEmptyHomePriceTextField() {
+        let alert = UIAlertController(title: "Empty Home Price!", message: "The Home Price text field is empty!", preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        
+        alert.addAction(okayAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+
+    func presentEmptyDownPaymentTextField() {
+        let alert = UIAlertController(title: "Empty Down Payment!", message: "The Down Payment text field is empty!", preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+
+        alert.addAction(okayAction)
+
+        present(alert, animated: true, completion: nil)
+    }
+
+    func presentEmptyInterestRateTextField() {
+        let alert = UIAlertController(title: "Empty Interest Rate!", message: "The Interest Rate text field is empty!", preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+
+        alert.addAction(okayAction)
+
+        present(alert, animated: true, completion: nil)
+    }
+
+    func presentEmptyLoanTermTextField() {
+        let alert = UIAlertController(title: "Empty Loan Term!", message: "The Loan Term text field is empty!", preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+
+        alert.addAction(okayAction)
+
+        present(alert, animated: true, completion: nil)
+    }
+
     func clearTextFields() {
-        homePriceTxtFeild.text = nil
-        downPaymentTxtFeild.text = nil
-        interestRateTxtFeild.text = nil
-        loanTermTxtFeild.text = nil
+        homePriceTxtField.text = nil
+        downPaymentTxtField.text = nil
+        interestRateTxtField.text = nil
+        loanTermTxtField.text = nil
         downPmtPercentageLbl.text = "(0%)"
         paymentResultLbl.text = "$0.00"
         termLengthLbl.text = nil
@@ -103,12 +174,12 @@ class ViewController: UIViewController {
         termLengthLbl.text = "\(Int(self.termLength))-Year Fixed Loan Term"
         showAmortizationScheduleButton.setTitle("Show Amortization Schedule", for: .normal)
     }
-    
+
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToPaymentSchedule" {
             guard let paymentScheduleTBC = segue.destination as? PaymentScheduleTableViewController else { return }
-            
+
             paymentScheduleTBC.mortgageController = self.mortgageController
         }
     }
@@ -118,16 +189,16 @@ class ViewController: UIViewController {
 extension ViewController: UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == homePriceTxtFeild {
+        if textField == homePriceTxtField {
             textField.resignFirstResponder()
-            downPaymentTxtFeild.becomeFirstResponder()
-        } else if textField == downPaymentTxtFeild {
+            downPaymentTxtField.becomeFirstResponder()
+        } else if textField == downPaymentTxtField {
             textField.resignFirstResponder()
-            interestRateTxtFeild.becomeFirstResponder()
-        } else if textField == interestRateTxtFeild {
+            interestRateTxtField.becomeFirstResponder()
+        } else if textField == interestRateTxtField {
             textField.resignFirstResponder()
-            loanTermTxtFeild.becomeFirstResponder()
-        } else if textField == loanTermTxtFeild {
+            loanTermTxtField.becomeFirstResponder()
+        } else if textField == loanTermTxtField {
             textField.resignFirstResponder()
         }
         return true
@@ -144,24 +215,24 @@ extension ViewController: UITextFieldDelegate {
         textField.layer.borderColor = UIColor.systemGray.cgColor
         textField.layer.cornerRadius = 5
 
-        if textField == homePriceTxtFeild {
+        if textField == homePriceTxtField {
             guard let value = textField.text, !value.isEmpty else { return }
             let doubleVal = (value as NSString).doubleValue
             self.principalAmount = doubleVal
             textField.text = formatCurrencyValue(value: doubleVal)
-        } else if textField == downPaymentTxtFeild {
+        } else if textField == downPaymentTxtField {
             guard let value = textField.text, !value.isEmpty else { return }
             let doubleVal = (value as NSString).doubleValue
             self.downPayment = doubleVal
             let percentage = Int((self.downPayment / self.principalAmount) * 100)
             downPmtPercentageLbl.text = "(\(percentage)%)"
             textField.text = formatCurrencyValue(value: doubleVal)
-        } else if textField == interestRateTxtFeild {
+        } else if textField == interestRateTxtField {
             guard let value = textField.text, !value.isEmpty else { return }
             let doubleVal = (value as NSString).doubleValue
             self.interestRate = doubleVal
             textField.text = formatPercentageValue(value: doubleVal)
-        } else if textField == loanTermTxtFeild {
+        } else if textField == loanTermTxtField {
             guard let value = textField.text, !value.isEmpty else { return }
             let doubleVal = (value as NSString).doubleValue
             self.termLength = doubleVal

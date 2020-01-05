@@ -11,6 +11,7 @@ import UIKit
 class PaymentTableViewCell: UITableViewCell {
 
     // MARK: - IBOutlets
+    @IBOutlet weak var paymentCountLabel: UILabel!
     @IBOutlet weak var paymentLabel: UILabel!
     @IBOutlet weak var principalLabel: UILabel!
     @IBOutlet weak var interestLabel: UILabel!
@@ -31,6 +32,7 @@ class PaymentTableViewCell: UITableViewCell {
     
     private func updateViews() {
         guard let payment = payment else { return }
+
         paymentLabel.text = formatCurrencyValue(value: payment.monthlyPayment)
         interestLabel.text = formatCurrencyValue(value: payment.interestRate)
         principalLabel.text = formatCurrencyValue(value: payment.principalAmount)
