@@ -36,24 +36,9 @@ class ViewController: UIViewController {
         self.downPaymentTxtField.delegate = self
         self.interestRateTxtField.delegate = self
         self.loanTermTxtField.delegate = self
-        self.setupTextFields()
     }
 
-    func setupTextFields() {
-        homePriceTxtField.layer.borderWidth = 1.0
-        homePriceTxtField.layer.borderColor = UIColor.systemGray.cgColor
-        homePriceTxtField.layer.cornerRadius = 5
-        downPaymentTxtField.layer.borderWidth = 1.0
-        downPaymentTxtField.layer.borderColor = UIColor.systemGray.cgColor
-        downPaymentTxtField.layer.cornerRadius = 5
-        interestRateTxtField.layer.borderWidth = 1.0
-        interestRateTxtField.layer.borderColor = UIColor.systemGray.cgColor
-        interestRateTxtField.layer.cornerRadius = 5
-        loanTermTxtField.layer.borderWidth = 1.0
-        loanTermTxtField.layer.borderColor = UIColor.systemGray.cgColor
-        loanTermTxtField.layer.cornerRadius = 5
-    }
-
+    
     // MARK: - Formatters
     func formatCurrencyValue(value: Double) -> String {
         let currencyFormatter = NumberFormatter()
@@ -115,7 +100,7 @@ class ViewController: UIViewController {
                 principal = monthlyPayment - interest
             }
             
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let paymentViewController = storyBoard.instantiateViewController(withIdentifier: "AmortizationSchedule") as! PaymentScheduleTableViewController
             paymentViewController.mortgageController = self.mortgageController
             self.navigationController?.pushViewController(paymentViewController, animated: true)

@@ -15,11 +15,13 @@ class CustomTextField: UITextField {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupPlaceholderText()
+        setupTextFields()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupPlaceholderText()
+        setupTextFields()
     }
     
     func setupPlaceholderText() {
@@ -53,5 +55,17 @@ class CustomTextField: UITextField {
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: padding)
     }
+    
+    func setupTextFields() {
+        let borderWidth: CGFloat = 1.0
+        let borderColor = UIColor.systemGray.cgColor
+        let cornerRadius: CGFloat = 5
+        
+        layer.borderWidth = borderWidth
+        layer.borderColor = borderColor
+        layer.cornerRadius = cornerRadius
+    }
+    
+    
     
 }
