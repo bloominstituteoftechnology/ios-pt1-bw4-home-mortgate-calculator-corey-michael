@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         self.downPaymentTxtField.delegate = self
         self.interestRateTxtField.delegate = self
         self.loanTermTxtField.delegate = self
-        navigationController?.navigationBar.isHidden = true
+//        navigationController?.navigationBar.isHidden = true
     }
 
     
