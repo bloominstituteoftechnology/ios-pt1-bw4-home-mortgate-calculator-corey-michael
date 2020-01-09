@@ -79,7 +79,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func showAmortizationSchedule(_ sender: UIButton) {
-        if self.principalAmount > 0 && self.downPayment > 0 && self.interestRate > 0 && self.termLength > 0 {
+        if self.principalAmount > 0 && self.downPayment >= 0 && self.interestRate > 0 && self.termLength > 0 {
             let interestRatePercentage = self.interestRate / (12 * 100)
             let totalPaymentsCount = self.termLength * 12
             var adjustedPrice = self.principalAmount - self.downPayment
