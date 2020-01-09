@@ -21,36 +21,40 @@ class PaymentScheduleTableViewController: UITableViewController {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 18))
         
         let countLabel = UILabel()
-        countLabel.font = UIFont.systemFont(ofSize: 14)
+        countLabel.font = UIFont.systemFont(ofSize: 17)
         countLabel.text = "Count"
+//        countLabel.backgroundColor = .systemGreen
         countLabel.textAlignment = .center
-        countLabel.widthAnchor.constraint(equalToConstant: self.view.frame.width / 4).isActive = true
-        countLabel.heightAnchor.constraint(equalToConstant: 18.0).isActive = true
+        countLabel.translatesAutoresizingMaskIntoConstraints = false
+        countLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 252), for: NSLayoutConstraint.Axis.horizontal)
 
         let paymentLabel = UILabel()
-        paymentLabel.font = UIFont.systemFont(ofSize: 14)
+        paymentLabel.font = UIFont.systemFont(ofSize: 17)
         paymentLabel.text = "Payment"
+//        paymentLabel.backgroundColor = .systemYellow
         paymentLabel.textAlignment = .center
-        paymentLabel.widthAnchor.constraint(equalToConstant: self.view.frame.width / 4).isActive = true
-        paymentLabel.heightAnchor.constraint(equalToConstant: 18.0).isActive = true
+        paymentLabel.translatesAutoresizingMaskIntoConstraints = false
+        paymentLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 252), for: NSLayoutConstraint.Axis.horizontal)
         
         let interestLabel = UILabel()
-        interestLabel.font = UIFont.systemFont(ofSize: 14)
+        interestLabel.font = UIFont.systemFont(ofSize: 17)
         interestLabel.text = "Interest"
+//        interestLabel.backgroundColor = .systemBlue
         interestLabel.textAlignment = .center
-        interestLabel.widthAnchor.constraint(equalToConstant: self.view.frame.width / 4).isActive = true
-        interestLabel.heightAnchor.constraint(equalToConstant: 18.0).isActive = true
+        interestLabel.translatesAutoresizingMaskIntoConstraints = false
+        interestLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 252), for: NSLayoutConstraint.Axis.horizontal)
         
         let principalLabel = UILabel()
-        principalLabel.font = UIFont.systemFont(ofSize: 14)
+        principalLabel.font = UIFont.systemFont(ofSize: 17)
         principalLabel.text = "Principal"
+//        principalLabel.backgroundColor = .systemRed
         principalLabel.textAlignment = .center
-        principalLabel.widthAnchor.constraint(equalToConstant: self.view.frame.width / 4).isActive = true
-        principalLabel.heightAnchor.constraint(equalToConstant: 18.0).isActive = true
+        principalLabel.translatesAutoresizingMaskIntoConstraints = false
+        principalLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 251), for: NSLayoutConstraint.Axis.horizontal)
         
         let stackView = UIStackView()
         stackView.axis = NSLayoutConstraint.Axis.horizontal
-        stackView.distribution = UIStackView.Distribution.equalCentering
+        stackView.distribution = UIStackView.Distribution.equalSpacing
         stackView.alignment = UIStackView.Alignment.fill
         stackView.spacing = 8.0
         
@@ -61,11 +65,11 @@ class PaymentScheduleTableViewController: UITableViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
                 
         view.addSubview(stackView)
-        view.backgroundColor = .systemYellow
+        view.backgroundColor = .systemGray
         
         let guide = view.safeAreaLayoutGuide
-        stackView.leadingAnchor.constraint(equalTo: guide.leadingAnchor, constant: -20.0).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: 0.0).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: guide.leadingAnchor, constant: 10.0).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: -45.0).isActive = true
         stackView.topAnchor.constraint(equalTo: guide.topAnchor, constant: 0.0).isActive = true
         stackView.bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: 0.0).isActive = true
 

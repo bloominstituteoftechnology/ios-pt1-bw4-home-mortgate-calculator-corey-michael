@@ -32,6 +32,11 @@ class PaymentTableViewCell: UITableViewCell {
     
     private func updateViews() {
         guard let payment = payment else { return }
+        
+//        paymentCountLabel.backgroundColor = .systemGreen
+//        paymentLabel.backgroundColor = .systemYellow
+//        interestLabel.backgroundColor = .systemBlue
+//        principalLabel.backgroundColor = .systemRed
 
         paymentLabel.text = formatCurrencyValue(value: payment.monthlyPayment)
         interestLabel.text = formatCurrencyValue(value: payment.interestRate)
