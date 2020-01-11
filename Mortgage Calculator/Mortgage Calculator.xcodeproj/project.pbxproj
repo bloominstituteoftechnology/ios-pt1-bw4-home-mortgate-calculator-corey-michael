@@ -19,7 +19,7 @@
 		EF29DF3123C9711400A783F3 /* GraphVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF29DF3023C9711400A783F3 /* GraphVC.swift */; };
 		EF570B2423C9793A009C7896 /* AmoritizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF570B2323C9793A009C7896 /* AmoritizationView.swift */; };
 		EF9805BC23AC686400FB0F2D /* MorgagePayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9805BB23AC686400FB0F2D /* MorgagePayment.swift */; };
-		EF9805BE23AC697C00FB0F2D /* MortgageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9805BD23AC697C00FB0F2D /* MortgageController.swift */; };
+		EF9805BE23AC697C00FB0F2D /* MorgageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9805BD23AC697C00FB0F2D /* MorgageController.swift */; };
 		EF9805C123AC831700FB0F2D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9805C023AC831700FB0F2D /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +38,7 @@
 		EF29DF3023C9711400A783F3 /* GraphVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphVC.swift; sourceTree = "<group>"; };
 		EF570B2323C9793A009C7896 /* AmoritizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmoritizationView.swift; sourceTree = "<group>"; };
 		EF9805BB23AC686400FB0F2D /* MorgagePayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorgagePayment.swift; sourceTree = "<group>"; };
-		EF9805BD23AC697C00FB0F2D /* MortgageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortgageController.swift; sourceTree = "<group>"; };
+		EF9805BD23AC697C00FB0F2D /* MorgageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorgageController.swift; sourceTree = "<group>"; };
 		EF9805C023AC831700FB0F2D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,7 +103,7 @@
 		EF73373823AB21290037CB1D /* Model Controller */ = {
 			isa = PBXGroup;
 			children = (
-				EF9805BD23AC697C00FB0F2D /* MortgageController.swift */,
+				EF9805BD23AC697C00FB0F2D /* MorgageController.swift */,
 			);
 			name = "Model Controller";
 			sourceTree = "<group>";
@@ -218,7 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF9805BE23AC697C00FB0F2D /* MortgageController.swift in Sources */,
+				EF9805BE23AC697C00FB0F2D /* MorgageController.swift in Sources */,
 				D67EEC5723A9E02B00E8F948 /* ViewController.swift in Sources */,
 				D6B4DD0723AEADEF00FCE8F0 /* PaymentTableViewCell.swift in Sources */,
 				D67EEC5323A9E02B00E8F948 /* AppDelegate.swift in Sources */,

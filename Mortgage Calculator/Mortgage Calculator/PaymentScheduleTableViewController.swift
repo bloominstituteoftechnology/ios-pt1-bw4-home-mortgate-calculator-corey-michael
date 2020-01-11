@@ -10,7 +10,7 @@ import UIKit
 
 class PaymentScheduleTableViewController: UITableViewController {
     
-    var mortgageController: MortgageController?
+    var morgageController: MorgageController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,6 @@ class PaymentScheduleTableViewController: UITableViewController {
         let countLabel = UILabel()
         countLabel.font = UIFont.systemFont(ofSize: 17)
         countLabel.text = "Count"
-//        countLabel.backgroundColor = .systemGreen
         countLabel.textAlignment = .center
         countLabel.translatesAutoresizingMaskIntoConstraints = false
         countLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 252), for: NSLayoutConstraint.Axis.horizontal)
@@ -31,7 +30,6 @@ class PaymentScheduleTableViewController: UITableViewController {
         let paymentLabel = UILabel()
         paymentLabel.font = UIFont.systemFont(ofSize: 17)
         paymentLabel.text = "Payment"
-//        paymentLabel.backgroundColor = .systemYellow
         paymentLabel.textAlignment = .center
         paymentLabel.translatesAutoresizingMaskIntoConstraints = false
         paymentLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 252), for: NSLayoutConstraint.Axis.horizontal)
@@ -39,7 +37,6 @@ class PaymentScheduleTableViewController: UITableViewController {
         let interestLabel = UILabel()
         interestLabel.font = UIFont.systemFont(ofSize: 17)
         interestLabel.text = "Interest"
-//        interestLabel.backgroundColor = .systemBlue
         interestLabel.textAlignment = .center
         interestLabel.translatesAutoresizingMaskIntoConstraints = false
         interestLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 252), for: NSLayoutConstraint.Axis.horizontal)
@@ -47,7 +44,6 @@ class PaymentScheduleTableViewController: UITableViewController {
         let principalLabel = UILabel()
         principalLabel.font = UIFont.systemFont(ofSize: 17)
         principalLabel.text = "Principal"
-//        principalLabel.backgroundColor = .systemRed
         principalLabel.textAlignment = .center
         principalLabel.translatesAutoresizingMaskIntoConstraints = false
         principalLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 251), for: NSLayoutConstraint.Axis.horizontal)
@@ -77,13 +73,13 @@ class PaymentScheduleTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.mortgageController!.payments.count
+        return self.morgageController!.payments.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PaymentCell", for: indexPath) as! PaymentTableViewCell
         
-        let payment = self.mortgageController!.payments[indexPath.row]
+        let payment = self.morgageController!.payments[indexPath.row]
         cell.payment = payment
         cell.paymentCountLabel.text = String(indexPath.row + 1)
 
@@ -93,6 +89,9 @@ class PaymentScheduleTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let graphVC = storyboard.instantiateViewController(withIdentifier: "GraphVC") as! GraphVC
+        let payment = self.morgageController!.payments[indexPath.row]
+        graphVC.morgageController = self.morgageController
+        graphVC.payment = payment
         self.navigationController?.pushViewController(graphVC, animated: true)
     }
 

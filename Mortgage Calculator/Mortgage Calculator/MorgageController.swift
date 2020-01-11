@@ -1,5 +1,5 @@
 //
-//  MortgageController.swift
+//  MorgageController.swift
 //  Mortgage Calculator
 //
 //  Created by Seschwan on 12/19/19.
@@ -8,11 +8,11 @@
 
 import Foundation
 
-class MortgageController {
+class MorgageController {
     
-    var payments: [MortgagePayment] = []
+    var payments: [MorgagePayment] = []
     
-    func calculateMortgagePayments(principalAmount: Double, downPayment: Double, interestRate: Double, termLength: Double) -> Double {
+    func calculateMorgagePayments(principalAmount: Double, downPayment: Double, interestRate: Double, termLength: Double) -> Double {
         let interestRatePercentage = interestRate / (12 * 100)
         let totalPaymentsCount = termLength * 12
         let adjustedPrice = principalAmount - downPayment

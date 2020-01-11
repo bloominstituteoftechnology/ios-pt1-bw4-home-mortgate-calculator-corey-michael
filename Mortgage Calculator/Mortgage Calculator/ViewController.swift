@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var showAmortizationScheduleButton: UIButton!
 
     // MARK: - Controllers
-    let mortgageController = MortgageController()
+    let morgageController = MorgageController()
 
     // MARK: - Variables
     var principalAmount: Double = 0.0
@@ -70,7 +70,7 @@ class ViewController: UIViewController {
         guard let termLength = self.loanTermTxtField.text, !termLength.isEmpty else { return self.presentEmptyLoanTermTextField() }
 
         self.view.endEditing(true)
-        self.monthlyPayment = mortgageController.calculateMortgagePayments(principalAmount: self.principalAmount, downPayment: self.downPayment, interestRate: self.interestRate, termLength: self.termLength)
+        self.monthlyPayment = morgageController.calculateMorgagePayments(principalAmount: self.principalAmount, downPayment: self.downPayment, interestRate: self.interestRate, termLength: self.termLength)
         self.updateViews()
     }
 
@@ -91,11 +91,11 @@ class ViewController: UIViewController {
             let monthlyPayment = adjustedPrice * result
             var interest = adjustedPrice * interestRatePercentage
             var principal = monthlyPayment - interest
-            self.mortgageController.payments = [];
+            self.morgageController.payments = [];
 
             for _ in 1...Int(totalPaymentsCount) {
                 adjustedPrice = adjustedPrice - principal
-                self.mortgageController.payments.append(MortgagePayment(principalAmount: abs(adjustedPrice), downPayment: downPayment, interestRate: interest, termLength: termLength, monthlyPayment: monthlyPayment))
+                self.morgageController.payments.append(MorgagePayment(principalAmount: abs(adjustedPrice), downPayment: downPayment, interestRate: interest, termLength: termLength, monthlyPayment: monthlyPayment))
     
                 interest = adjustedPrice * interestRatePercentage
                 principal = monthlyPayment - interest
@@ -103,7 +103,7 @@ class ViewController: UIViewController {
             
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let paymentViewController = storyBoard.instantiateViewController(withIdentifier: "AmortizationSchedule") as! PaymentScheduleTableViewController
-            paymentViewController.mortgageController = self.mortgageController
+            paymentViewController.morgageController = self.morgageController
             self.navigationController?.pushViewController(paymentViewController, animated: true)
         }
     }
@@ -166,7 +166,7 @@ class ViewController: UIViewController {
         if segue.identifier == "ToPaymentSchedule" {
             guard let paymentScheduleTBC = segue.destination as? PaymentScheduleTableViewController else { return }
 
-            paymentScheduleTBC.mortgageController = self.mortgageController
+            paymentScheduleTBC.morgageController = self.morgageController
         }
     }
 

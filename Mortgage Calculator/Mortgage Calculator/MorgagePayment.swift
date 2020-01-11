@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MortgagePayment {
+struct MorgagePayment {
     var principalAmount: Double
     var downPayment:     Double
     var interestRate:    Double
