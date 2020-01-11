@@ -442,6 +442,59 @@
             </objects>
             <point key="canvasLocation" x="1754" y="129"/>
         </scene>
+        <!--GraphVC-->
+        <scene sceneID="00D-pM-OcH">
+            <objects>
+                <viewController storyboardIdentifier="GraphVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="axe-TI-RIG" customClass="GraphVC" customModule="Mortgage_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="omG-uf-Hhc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0XW-By-HTx" customClass="AmoritizationView" customModule="Mortgage_Calculator" customModuleProvider="target">
+                                <rect key="frame" x="16" y="60" width="343" height="314"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAa-Me-Y6W">
+                                        <rect key="frame" x="1" y="1" width="60" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="0XW-By-HTx" secondAttribute="height" multiplier="343:314" id="Nff-EM-TOu"/>
+                                    <constraint firstItem="qAa-Me-Y6W" firstAttribute="leading" secondItem="0XW-By-HTx" secondAttribute="leading" constant="1" id="VFI-tD-byv"/>
+                                    <constraint firstItem="qAa-Me-Y6W" firstAttribute="top" secondItem="0XW-By-HTx" secondAttribute="top" constant="1" id="Y5N-In-IbY"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6HH-pi-Hw8">
+                                <rect key="frame" x="16" y="374" width="343" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="6q1-an-cvs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6HH-pi-Hw8" firstAttribute="leading" secondItem="0XW-By-HTx" secondAttribute="leading" id="5XB-iu-BiE"/>
+                            <constraint firstItem="6HH-pi-Hw8" firstAttribute="top" secondItem="0XW-By-HTx" secondAttribute="bottom" id="Io1-v2-fDA"/>
+                            <constraint firstItem="0XW-By-HTx" firstAttribute="top" secondItem="f3n-MY-AgM" secondAttribute="top" constant="16" id="K1V-ij-P2Y"/>
+                            <constraint firstItem="f3n-MY-AgM" firstAttribute="trailing" secondItem="0XW-By-HTx" secondAttribute="trailing" constant="16" id="N7e-Of-f6I"/>
+                            <constraint firstItem="6HH-pi-Hw8" firstAttribute="trailing" secondItem="0XW-By-HTx" secondAttribute="trailing" id="fDV-Ck-a7y"/>
+                            <constraint firstItem="0XW-By-HTx" firstAttribute="leading" secondItem="f3n-MY-AgM" secondAttribute="leading" constant="16" id="hGC-gE-6am"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="f3n-MY-AgM"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="dlE-fE-cX0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ZR-8Q-8vA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2450.4000000000001" y="131.52709359605913"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Mle-li-aOz">
             <objects>

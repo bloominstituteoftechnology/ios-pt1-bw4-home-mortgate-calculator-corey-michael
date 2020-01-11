@@ -65,7 +65,7 @@ class PaymentScheduleTableViewController: UITableViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
                 
         view.addSubview(stackView)
-        view.backgroundColor = .systemGray
+        view.backgroundColor = .systemGray5
         
         let guide = view.safeAreaLayoutGuide
         stackView.leadingAnchor.constraint(equalTo: guide.leadingAnchor, constant: 10.0).isActive = true
@@ -88,6 +88,12 @@ class PaymentScheduleTableViewController: UITableViewController {
         cell.paymentCountLabel.text = String(indexPath.row + 1)
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let graphVC = storyboard.instantiateViewController(withIdentifier: "GraphVC") as! GraphVC
+        self.navigationController?.pushViewController(graphVC, animated: true)
     }
 
 }
