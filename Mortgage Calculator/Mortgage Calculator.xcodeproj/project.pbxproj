@@ -13,6 +13,12 @@
 		D67EEC5A23A9E02B00E8F948 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D67EEC5823A9E02B00E8F948 /* Main.storyboard */; };
 		D67EEC5C23A9E02D00E8F948 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D67EEC5B23A9E02D00E8F948 /* Assets.xcassets */; };
 		D67EEC5F23A9E02D00E8F948 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D67EEC5D23A9E02D00E8F948 /* LaunchScreen.storyboard */; };
+		D6B4DD0423AEADC100FCE8F0 /* PaymentScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B4DD0323AEADC100FCE8F0 /* PaymentScheduleTableViewController.swift */; };
+		D6B4DD0723AEADEF00FCE8F0 /* PaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B4DD0623AEADEF00FCE8F0 /* PaymentTableViewCell.swift */; };
+		EF28F91123AD9B89003B3362 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF28F91023AD9B89003B3362 /* CustomButton.swift */; };
+		EF9805BC23AC686400FB0F2D /* MorgagePayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9805BB23AC686400FB0F2D /* MorgagePayment.swift */; };
+		EF9805BE23AC697C00FB0F2D /* MortgageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9805BD23AC697C00FB0F2D /* MortgageController.swift */; };
+		EF9805C123AC831700FB0F2D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9805C023AC831700FB0F2D /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		D67EEC5B23A9E02D00E8F948 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D67EEC5E23A9E02D00E8F948 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D67EEC6023A9E02D00E8F948 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6B4DD0323AEADC100FCE8F0 /* PaymentScheduleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentScheduleTableViewController.swift; sourceTree = "<group>"; };
+		D6B4DD0623AEADEF00FCE8F0 /* PaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTableViewCell.swift; sourceTree = "<group>"; };
+		EF28F91023AD9B89003B3362 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		EF9805BB23AC686400FB0F2D /* MorgagePayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorgagePayment.swift; sourceTree = "<group>"; };
+		EF9805BD23AC697C00FB0F2D /* MortgageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortgageController.swift; sourceTree = "<group>"; };
+		EF9805C023AC831700FB0F2D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +68,77 @@
 		D67EEC5123A9E02B00E8F948 /* Mortgage Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				D67EEC5223A9E02B00E8F948 /* AppDelegate.swift */,
-				D67EEC5423A9E02B00E8F948 /* SceneDelegate.swift */,
-				D67EEC5623A9E02B00E8F948 /* ViewController.swift */,
-				D67EEC5823A9E02B00E8F948 /* Main.storyboard */,
-				D67EEC5B23A9E02D00E8F948 /* Assets.xcassets */,
-				D67EEC5D23A9E02D00E8F948 /* LaunchScreen.storyboard */,
-				D67EEC6023A9E02D00E8F948 /* Info.plist */,
+				EF73373723AB20EE0037CB1D /* Model */,
+				EF73373823AB21290037CB1D /* Model Controller */,
+				D6B4DD0523AEADD800FCE8F0 /* Views */,
+				EF73373923AB21370037CB1D /* View Contollers */,
+				EF73373A23AB21510037CB1D /* Storyboards */,
+				EF9805BF23AC82E000FB0F2D /* Helpers */,
+				EF73373B23AB21930037CB1D /* Resources */,
 			);
 			path = "Mortgage Calculator";
+			sourceTree = "<group>";
+		};
+		D6B4DD0523AEADD800FCE8F0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D6B4DD0623AEADEF00FCE8F0 /* PaymentTableViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		EF73373723AB20EE0037CB1D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EF9805BB23AC686400FB0F2D /* MorgagePayment.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		EF73373823AB21290037CB1D /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EF9805BD23AC697C00FB0F2D /* MortgageController.swift */,
+			);
+			name = "Model Controller";
+			sourceTree = "<group>";
+		};
+		EF73373923AB21370037CB1D /* View Contollers */ = {
+			isa = PBXGroup;
+			children = (
+				D67EEC5623A9E02B00E8F948 /* ViewController.swift */,
+				D6B4DD0323AEADC100FCE8F0 /* PaymentScheduleTableViewController.swift */,
+			);
+			name = "View Contollers";
+			sourceTree = "<group>";
+		};
+		EF73373A23AB21510037CB1D /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D67EEC5823A9E02B00E8F948 /* Main.storyboard */,
+				D67EEC5D23A9E02D00E8F948 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		EF73373B23AB21930037CB1D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D67EEC5223A9E02B00E8F948 /* AppDelegate.swift */,
+				D67EEC5423A9E02B00E8F948 /* SceneDelegate.swift */,
+				D67EEC5B23A9E02D00E8F948 /* Assets.xcassets */,
+				D67EEC6023A9E02D00E8F948 /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		EF9805BF23AC82E000FB0F2D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EF9805C023AC831700FB0F2D /* CustomTextField.swift */,
+				EF28F91023AD9B89003B3362 /* CustomButton.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +212,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF9805BE23AC697C00FB0F2D /* MortgageController.swift in Sources */,
 				D67EEC5723A9E02B00E8F948 /* ViewController.swift in Sources */,
+				D6B4DD0723AEADEF00FCE8F0 /* PaymentTableViewCell.swift in Sources */,
 				D67EEC5323A9E02B00E8F948 /* AppDelegate.swift in Sources */,
+				EF9805C123AC831700FB0F2D /* CustomTextField.swift in Sources */,
+				EF28F91123AD9B89003B3362 /* CustomButton.swift in Sources */,
+				D6B4DD0423AEADC100FCE8F0 /* PaymentScheduleTableViewController.swift in Sources */,
+				EF9805BC23AC686400FB0F2D /* MorgagePayment.swift in Sources */,
 				D67EEC5523A9E02B00E8F948 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,6 +371,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michaelstoffer.Mortgage-Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -309,6 +390,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michaelstoffer.Mortgage-Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
